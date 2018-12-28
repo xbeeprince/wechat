@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3FE61AD21D62912002A6C4D /* QORMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61AC21D62912002A6C4D /* QORMModel.m */; };
+		A3FE61B021D64709002A6C4D /* QORMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61AF21D64709002A6C4D /* QORMManager.m */; };
+		A3FE61D721D64AF4002A6C4D /* QORMProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61D621D64AF4002A6C4D /* QORMProperty.m */; };
+		A3FE61DA21D64B50002A6C4D /* QORMPropertyParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61D921D64B50002A6C4D /* QORMPropertyParser.m */; };
+		A3FE61DD21D6501E002A6C4D /* QPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61DC21D6501E002A6C4D /* QPersonModel.m */; };
+		A3FE61E021D652D5002A6C4D /* QORMArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61DF21D652D5002A6C4D /* QORMArray.m */; };
 		A3FE73AD21CBC07500A9A3FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FE73AC21CBC07500A9A3FD /* Assets.xcassets */; };
 		A3FE73C021CBC0E900A9A3FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE73BD21CBC0E900A9A3FD /* main.m */; };
 		A3FE73C121CBC0E900A9A3FD /* wechatAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE73BE21CBC0E900A9A3FD /* wechatAppDelegate.m */; };
@@ -14,6 +20,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A3FE61AB21D62912002A6C4D /* QORMModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMModel.h; sourceTree = "<group>"; };
+		A3FE61AC21D62912002A6C4D /* QORMModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMModel.m; sourceTree = "<group>"; };
+		A3FE61AE21D64709002A6C4D /* QORMManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMManager.h; sourceTree = "<group>"; };
+		A3FE61AF21D64709002A6C4D /* QORMManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMManager.m; sourceTree = "<group>"; };
+		A3FE61D521D64AF4002A6C4D /* QORMProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMProperty.h; sourceTree = "<group>"; };
+		A3FE61D621D64AF4002A6C4D /* QORMProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMProperty.m; sourceTree = "<group>"; };
+		A3FE61D821D64B50002A6C4D /* QORMPropertyParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMPropertyParser.h; sourceTree = "<group>"; };
+		A3FE61D921D64B50002A6C4D /* QORMPropertyParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMPropertyParser.m; sourceTree = "<group>"; };
+		A3FE61DB21D6501E002A6C4D /* QPersonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QPersonModel.h; sourceTree = "<group>"; };
+		A3FE61DC21D6501E002A6C4D /* QPersonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QPersonModel.m; sourceTree = "<group>"; };
+		A3FE61DE21D652D5002A6C4D /* QORMArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMArray.h; sourceTree = "<group>"; };
+		A3FE61DF21D652D5002A6C4D /* QORMArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMArray.m; sourceTree = "<group>"; };
 		A3FE73A021CBC07400A9A3FD /* wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FE73AC21CBC07500A9A3FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3FE73BC21CBC0E900A9A3FD /* wechatAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wechatAppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +53,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3FE61A921D628D1002A6C4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3FE61AA21D628F2002A6C4D /* ORM */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A3FE61AA21D628F2002A6C4D /* ORM */ = {
+			isa = PBXGroup;
+			children = (
+				A3FE61AB21D62912002A6C4D /* QORMModel.h */,
+				A3FE61AC21D62912002A6C4D /* QORMModel.m */,
+				A3FE61AE21D64709002A6C4D /* QORMManager.h */,
+				A3FE61AF21D64709002A6C4D /* QORMManager.m */,
+				A3FE61B121D64A0C002A6C4D /* Core */,
+			);
+			path = ORM;
+			sourceTree = "<group>";
+		};
+		A3FE61B121D64A0C002A6C4D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A3FE61D521D64AF4002A6C4D /* QORMProperty.h */,
+				A3FE61D621D64AF4002A6C4D /* QORMProperty.m */,
+				A3FE61DE21D652D5002A6C4D /* QORMArray.h */,
+				A3FE61DF21D652D5002A6C4D /* QORMArray.m */,
+				A3FE61D821D64B50002A6C4D /* QORMPropertyParser.h */,
+				A3FE61D921D64B50002A6C4D /* QORMPropertyParser.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		A3FE739721CBC07400A9A3FD = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +116,7 @@
 		A3FE73B921CBC0E900A9A3FD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A3FE61A921D628D1002A6C4D /* Model */,
 				A3FE73C721CBC2F700A9A3FD /* Util */,
 				A3FE73C321CBC1B300A9A3FD /* MainPage */,
 			);
@@ -94,6 +146,8 @@
 			children = (
 				A3FE73C421CBC1CA00A9A3FD /* wechatMainPageViewController.h */,
 				A3FE73C521CBC1CA00A9A3FD /* wechatMainPageViewController.m */,
+				A3FE61DB21D6501E002A6C4D /* QPersonModel.h */,
+				A3FE61DC21D6501E002A6C4D /* QPersonModel.m */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -175,7 +229,13 @@
 			files = (
 				A3FE73C121CBC0E900A9A3FD /* wechatAppDelegate.m in Sources */,
 				A3FE73C621CBC1CA00A9A3FD /* wechatMainPageViewController.m in Sources */,
+				A3FE61DD21D6501E002A6C4D /* QPersonModel.m in Sources */,
+				A3FE61AD21D62912002A6C4D /* QORMModel.m in Sources */,
 				A3FE73C021CBC0E900A9A3FD /* main.m in Sources */,
+				A3FE61B021D64709002A6C4D /* QORMManager.m in Sources */,
+				A3FE61E021D652D5002A6C4D /* QORMArray.m in Sources */,
+				A3FE61DA21D64B50002A6C4D /* QORMPropertyParser.m in Sources */,
+				A3FE61D721D64AF4002A6C4D /* QORMProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

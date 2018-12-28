@@ -7,6 +7,8 @@
 //
 
 #import "wechatMainPageViewController.h"
+#import "QORMManager.h"
+#import "QPersonModel.h"
 
 @interface wechatMainPageViewController ()
 
@@ -19,6 +21,8 @@
     // Do any additional setup after loading the view.
     
     [self initialize];
+    
+    [self runTest];
 }
 
 -(void)initialize
@@ -27,14 +31,22 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark -- 测试ORMModel的代码
+-(void)runTest
+{
+    QPersonModel *person = [QPersonModel new];
+    person.city = @"深圳";
+    person.name = @"王子健";
+    person.age = 21;
+    
+    QPersonModel *friendPerson = [QPersonModel new];
+    friendPerson.city = @"上海";
+    friendPerson.name = @"小明";
+    friendPerson.age = 22;
+    
+    person.friendPerson = friendPerson;
+    
+    [[QORMManager getInstance] saveWithModel:person];
 }
-*/
 
 @end
