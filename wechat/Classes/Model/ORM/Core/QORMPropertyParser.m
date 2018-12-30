@@ -69,20 +69,34 @@ static NSDictionary *_QORMTypeDict=nil;
 
 +(NSArray *)parserPropertyInfoWithModel:(QORMModel *)model
 {
+    if ([model isKindOfClass: [QORMModel class]] == NO) {
+        return nil;
+    }
+    
     NSMutableArray *propertyInfoArray = [NSMutableArray new];
     {
-        unsigned int propsCount;
-        objc_property_t *props = class_copyPropertyList([model class], &propsCount);
-        
-        for (int i = 0; i < propsCount; i++) {
-            objc_property_t  property = props[i];
-            QORMProperty *propertyInfo = [QORMProperty new];
-            propertyInfo.type = [self propertyType:property];
-            propertyInfo.name = [self propertyName:property];
-            propertyInfo.value = [model valueForKey: propertyInfo.name];
+        Class cls = [model class];
+        while (cls != [QORMModel class]) {//父类的属性也要遍历到
             
-            [propertyInfoArray addObject:propertyInfo];
+            unsigned int propsCount;
+            objc_property_t *props = class_copyPropertyList(cls, &propsCount);
+            
+            for (int i = 0; i < propsCount; i++) {
+                objc_property_t  property = props[i];
+                QORMProperty *propertyInfo = [QORMProperty new];
+                propertyInfo.type = [self propertyType:property];
+                propertyInfo.name = [self propertyName:property];
+                propertyInfo.value = [model valueForKey: propertyInfo.name];
+                
+                [propertyInfoArray addObject:propertyInfo];
+            }
+            
+            free(props);
+            
+            cls = class_getSuperclass(cls);
         }
+        
+        
     }
     return propertyInfoArray;
 }

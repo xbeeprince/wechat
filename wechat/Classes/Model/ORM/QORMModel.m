@@ -14,6 +14,10 @@
     return nil;
 }
 
++ (NSString *)tableName {
+    return NSStringFromClass(self);
+}
+
 + (NSArray *)requiredProperties {
     return nil;
 }

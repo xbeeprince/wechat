@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)primaryKey;
 
++ (NSString *)tableName;
+
 + (NSArray *)requiredProperties;
 
 + (NSArray *)ignoredProperties;

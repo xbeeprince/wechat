@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38B7E8BA375E723370F18093 /* libPods-wechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 379BFF04581F898C39A24746 /* libPods-wechat.a */; };
+		A3AFEB9721D7221A00E003B4 /* QStudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFEB9621D7221A00E003B4 /* QStudentModel.m */; };
+		A3AFEB9A21D7507400E003B4 /* QORMTableCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFEB9921D7507400E003B4 /* QORMTableCreater.m */; };
+		A3AFEB9E21D758B500E003B4 /* QFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFEB9D21D758B500E003B4 /* QFileHandler.m */; };
 		A3FE61AD21D62912002A6C4D /* QORMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61AC21D62912002A6C4D /* QORMModel.m */; };
 		A3FE61B021D64709002A6C4D /* QORMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61AF21D64709002A6C4D /* QORMManager.m */; };
 		A3FE61D721D64AF4002A6C4D /* QORMProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61D621D64AF4002A6C4D /* QORMProperty.m */; };
 		A3FE61DA21D64B50002A6C4D /* QORMPropertyParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61D921D64B50002A6C4D /* QORMPropertyParser.m */; };
 		A3FE61DD21D6501E002A6C4D /* QPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61DC21D6501E002A6C4D /* QPersonModel.m */; };
-		A3FE61E021D652D5002A6C4D /* QORMArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE61DF21D652D5002A6C4D /* QORMArray.m */; };
 		A3FE73AD21CBC07500A9A3FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FE73AC21CBC07500A9A3FD /* Assets.xcassets */; };
 		A3FE73C021CBC0E900A9A3FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE73BD21CBC0E900A9A3FD /* main.m */; };
 		A3FE73C121CBC0E900A9A3FD /* wechatAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE73BE21CBC0E900A9A3FD /* wechatAppDelegate.m */; };
@@ -20,6 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		379BFF04581F898C39A24746 /* libPods-wechat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wechat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		767B5CE2342D1962A677E459 /* Pods-wechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.release.xcconfig"; path = "Pods/Target Support Files/Pods-wechat/Pods-wechat.release.xcconfig"; sourceTree = "<group>"; };
+		838D272C9196334E0B69063F /* Pods-wechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wechat/Pods-wechat.debug.xcconfig"; sourceTree = "<group>"; };
+		A3AFEB9521D7221A00E003B4 /* QStudentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QStudentModel.h; sourceTree = "<group>"; };
+		A3AFEB9621D7221A00E003B4 /* QStudentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QStudentModel.m; sourceTree = "<group>"; };
+		A3AFEB9821D7507400E003B4 /* QORMTableCreater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMTableCreater.h; sourceTree = "<group>"; };
+		A3AFEB9921D7507400E003B4 /* QORMTableCreater.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMTableCreater.m; sourceTree = "<group>"; };
+		A3AFEB9C21D758B500E003B4 /* QFileHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QFileHandler.h; sourceTree = "<group>"; };
+		A3AFEB9D21D758B500E003B4 /* QFileHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QFileHandler.m; sourceTree = "<group>"; };
 		A3FE61AB21D62912002A6C4D /* QORMModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMModel.h; sourceTree = "<group>"; };
 		A3FE61AC21D62912002A6C4D /* QORMModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMModel.m; sourceTree = "<group>"; };
 		A3FE61AE21D64709002A6C4D /* QORMManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMManager.h; sourceTree = "<group>"; };
@@ -30,8 +42,6 @@
 		A3FE61D921D64B50002A6C4D /* QORMPropertyParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMPropertyParser.m; sourceTree = "<group>"; };
 		A3FE61DB21D6501E002A6C4D /* QPersonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QPersonModel.h; sourceTree = "<group>"; };
 		A3FE61DC21D6501E002A6C4D /* QPersonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QPersonModel.m; sourceTree = "<group>"; };
-		A3FE61DE21D652D5002A6C4D /* QORMArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMArray.h; sourceTree = "<group>"; };
-		A3FE61DF21D652D5002A6C4D /* QORMArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMArray.m; sourceTree = "<group>"; };
 		A3FE73A021CBC07400A9A3FD /* wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FE73AC21CBC07500A9A3FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3FE73BC21CBC0E900A9A3FD /* wechatAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wechatAppDelegate.h; sourceTree = "<group>"; };
@@ -47,12 +57,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B7E8BA375E723370F18093 /* libPods-wechat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0832C0FB3C24BEA3958752 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				838D272C9196334E0B69063F /* Pods-wechat.debug.xcconfig */,
+				767B5CE2342D1962A677E459 /* Pods-wechat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A3AFEB9B21D7589200E003B4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A3AFEB9C21D758B500E003B4 /* QFileHandler.h */,
+				A3AFEB9D21D758B500E003B4 /* QFileHandler.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		A3FE61A921D628D1002A6C4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +97,7 @@
 				A3FE61AC21D62912002A6C4D /* QORMModel.m */,
 				A3FE61AE21D64709002A6C4D /* QORMManager.h */,
 				A3FE61AF21D64709002A6C4D /* QORMManager.m */,
+				A3AFEB9B21D7589200E003B4 /* Helper */,
 				A3FE61B121D64A0C002A6C4D /* Core */,
 			);
 			path = ORM;
@@ -78,10 +108,10 @@
 			children = (
 				A3FE61D521D64AF4002A6C4D /* QORMProperty.h */,
 				A3FE61D621D64AF4002A6C4D /* QORMProperty.m */,
-				A3FE61DE21D652D5002A6C4D /* QORMArray.h */,
-				A3FE61DF21D652D5002A6C4D /* QORMArray.m */,
 				A3FE61D821D64B50002A6C4D /* QORMPropertyParser.h */,
 				A3FE61D921D64B50002A6C4D /* QORMPropertyParser.m */,
+				A3AFEB9821D7507400E003B4 /* QORMTableCreater.h */,
+				A3AFEB9921D7507400E003B4 /* QORMTableCreater.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -91,6 +121,8 @@
 			children = (
 				A3FE73A221CBC07400A9A3FD /* wechat */,
 				A3FE73A121CBC07400A9A3FD /* Products */,
+				2B0832C0FB3C24BEA3958752 /* Pods */,
+				ABBDC07DAC1ED4681841C0F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +180,8 @@
 				A3FE73C521CBC1CA00A9A3FD /* wechatMainPageViewController.m */,
 				A3FE61DB21D6501E002A6C4D /* QPersonModel.h */,
 				A3FE61DC21D6501E002A6C4D /* QPersonModel.m */,
+				A3AFEB9521D7221A00E003B4 /* QStudentModel.h */,
+				A3AFEB9621D7221A00E003B4 /* QStudentModel.m */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -159,6 +193,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		ABBDC07DAC1ED4681841C0F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				379BFF04581F898C39A24746 /* libPods-wechat.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +208,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3FE73B621CBC07500A9A3FD /* Build configuration list for PBXNativeTarget "wechat" */;
 			buildPhases = (
+				2A14BCC0F0E897D76BC4489E /* [CP] Check Pods Manifest.lock */,
 				A3FE739C21CBC07400A9A3FD /* Sources */,
 				A3FE739D21CBC07400A9A3FD /* Frameworks */,
 				A3FE739E21CBC07400A9A3FD /* Resources */,
@@ -222,6 +265,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A14BCC0F0E897D76BC4489E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wechat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3FE739C21CBC07400A9A3FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -229,12 +297,14 @@
 			files = (
 				A3FE73C121CBC0E900A9A3FD /* wechatAppDelegate.m in Sources */,
 				A3FE73C621CBC1CA00A9A3FD /* wechatMainPageViewController.m in Sources */,
+				A3AFEB9E21D758B500E003B4 /* QFileHandler.m in Sources */,
 				A3FE61DD21D6501E002A6C4D /* QPersonModel.m in Sources */,
 				A3FE61AD21D62912002A6C4D /* QORMModel.m in Sources */,
 				A3FE73C021CBC0E900A9A3FD /* main.m in Sources */,
 				A3FE61B021D64709002A6C4D /* QORMManager.m in Sources */,
-				A3FE61E021D652D5002A6C4D /* QORMArray.m in Sources */,
 				A3FE61DA21D64B50002A6C4D /* QORMPropertyParser.m in Sources */,
+				A3AFEB9721D7221A00E003B4 /* QStudentModel.m in Sources */,
+				A3AFEB9A21D7507400E003B4 /* QORMTableCreater.m in Sources */,
 				A3FE61D721D64AF4002A6C4D /* QORMProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +426,7 @@
 		};
 		A3FE73B721CBC07500A9A3FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 838D272C9196334E0B69063F /* Pods-wechat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -375,6 +446,7 @@
 		};
 		A3FE73B821CBC07500A9A3FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 767B5CE2342D1962A677E459 /* Pods-wechat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

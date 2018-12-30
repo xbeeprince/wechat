@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FMDB.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class QORMModel;
@@ -16,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)getInstance;
 
 -(void)saveWithModel:(QORMModel *)model;
+
+-(FMDatabaseQueue *)getDatabaseQueue;
 
 @end
 

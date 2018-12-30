@@ -10,6 +10,14 @@
 #import "QORMModel.h"
 #import "QORMProperty.h"
 #import "QORMPropertyParser.h"
+#import "QFileHandler.h"
+#import "QORMTableCreater.h"
+
+@interface QORMManager ()
+
+@property (nonatomic, strong)FMDatabaseQueue *dbQueue;
+
+@end
 
 @implementation QORMManager
 
@@ -26,30 +34,37 @@
 -(instancetype)init
 {
     if (self = [super init]) {
-        
+        _dbQueue = [[FMDatabaseQueue alloc] initWithPath:[self databasePath]];
     }
     return self;
 }
 
--(void)saveWithModel:(QORMModel *)model
+-(FMDatabaseQueue *)getDatabaseQueue
 {
-    NSArray *propertyInfoArray = [QORMPropertyParser parserPropertyInfoWithModel:model];
-    
-    for (QORMProperty *propertyInfo in propertyInfoArray) {
-        if ([propertyInfo.value isKindOfClass: [QORMModel class]]) {
-            NSLog(@"存储子表...");
-            //继续存储子表操作
-            QORMModel *infoModel = (QORMModel *)(propertyInfo.value);
-            [self saveWithModel:infoModel];
-        }
-        else{
-            //存储字段
-            NSLog(@"存储字段...");
-        }
+    if (_dbQueue == nil) {
+        _dbQueue = [[FMDatabaseQueue alloc] initWithPath:[self databasePath]];
     }
-    
-    NSLog(@"......");
+    return _dbQueue;
 }
 
+-(void)saveWithModel:(QORMModel *)model
+{
+    //创建表
+    BOOL result = [QORMTableCreater createTableWithModel:model];
+    NSLog(@"%d",result);
+}
+
+#pragma mark -- private mothod
+
+-(NSString *)databasePath
+{
+    NSString *documentDir = [QFileHandler getDocumentPath];
+    return [[documentDir stringByAppendingPathComponent: @"mydata"] stringByAppendingPathComponent:@"database.db"];
+}
+
+-(void)excuteWithBlock:(void (^)(void))block
+{
+    
+}
 
 @end

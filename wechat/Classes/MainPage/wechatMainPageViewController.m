@@ -9,6 +9,7 @@
 #import "wechatMainPageViewController.h"
 #import "QORMManager.h"
 #import "QPersonModel.h"
+#import "QStudentModel.h"
 
 @interface wechatMainPageViewController ()
 
@@ -34,19 +35,20 @@
 #pragma mark -- 测试ORMModel的代码
 -(void)runTest
 {
-    QPersonModel *person = [QPersonModel new];
-    person.city = @"深圳";
-    person.name = @"王子健";
-    person.age = 21;
+    QStudentModel *student = [QStudentModel new];
+    student.city = @"深圳";
+    student.name = @"王子健";
+    student.age = 21;
+    student.school = @"华中科技大学";
     
-    QPersonModel *friendPerson = [QPersonModel new];
-    friendPerson.city = @"上海";
-    friendPerson.name = @"小明";
-    friendPerson.age = 22;
+//    QPersonModel *friendPerson = [QPersonModel new];
+//    friendPerson.city = @"上海";
+//    friendPerson.name = @"小明";
+//    friendPerson.age = 22;
+//
+//    student.friendPerson = friendPerson;
     
-    person.friendPerson = friendPerson;
-    
-    [[QORMManager getInstance] saveWithModel:person];
+    [[QORMManager getInstance] saveWithModel:student];
 }
 
 @end
