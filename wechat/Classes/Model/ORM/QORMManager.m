@@ -51,15 +51,15 @@
 {
     //创建表
     BOOL result = [QORMTableCreater createTableWithModel:model];
-    NSLog(@"%d",result);
+    NSLog(@"create table result = %@",result ? @"YES":@"NO");
 }
 
 #pragma mark -- private mothod
 
 -(NSString *)databasePath
 {
-    NSString *documentDir = [QFileHandler getDocumentPath];
-    return [[documentDir stringByAppendingPathComponent: @"mydata"] stringByAppendingPathComponent:@"database.db"];
+    NSString *path = [QFileHandler getPathForDocuments:@"database.db" inDir:@"mydata"];
+    return path;
 }
 
 -(void)excuteWithBlock:(void (^)(void))block

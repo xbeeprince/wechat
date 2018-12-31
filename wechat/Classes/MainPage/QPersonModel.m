@@ -10,4 +10,7 @@
 
 @implementation QPersonModel
 
++(NSString *)primaryKey {
+    return @"cardId";
+}
 @end

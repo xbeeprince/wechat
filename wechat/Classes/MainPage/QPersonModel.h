@@ -12,11 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QPersonModel : QORMModel
 
+@property (nonatomic, strong) NSString *cardId;
+
 @property (nonatomic, strong) NSString *city;
 
 @property (nonatomic, strong) NSString *name;
 
 @property (nonatomic, assign) int age;
+
+//@property (nonatomic, assign) int sex;
 
 @property (nonatomic, strong) QPersonModel *friendPerson;
 

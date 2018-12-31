@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *school;
 
+@property (nonatomic, strong) NSString *className;
+
 @end
 
 NS_ASSUME_NONNULL_END
