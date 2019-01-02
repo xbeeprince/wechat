@@ -26,7 +26,7 @@
     NSMutableString *tableSQL = [NSMutableString string];
     for (QORMProperty *propertyInfo in propertyInfoArray) {
         if ([propertyInfo.value isKindOfClass: [QORMModel class]]) {
-            NSLog(@"创建子表...");
+            NSLog(@"create 子表...");
             //继续存储子表操作
             QORMModel *infoModel = (QORMModel *)(propertyInfo.value);
             NSString *dbName = [NSString stringWithFormat:@"%@_%@", propertyInfo.name,[infoModel.class primaryKey]];
@@ -38,12 +38,15 @@
         else{
             //存储字段
             NSLog(@"生成字段...");
+            if (tableSQL.length > 0) {
+                [tableSQL appendString:@","];
+            }
             NSString *dbName = propertyInfo.name;
             NSString *dbType = @"TEXT";
-            [tableSQL appendFormat: @"%@ %@,",dbName,dbType];
+            [tableSQL appendFormat: @"%@ %@",dbName,dbType];
         }
     }
-    [tableSQL deleteCharactersInRange:NSMakeRange(tableSQL.length - 1, 1)];
+
     BOOL result = NO;
     if ([tableSQL length] > 0) {
         NSString *createTableSQL = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,%@)",[model.class tableName],tableSQL];
@@ -71,7 +74,6 @@
         }
         BOOL ret = [QORMTableHelper isExistColumn:dbName inTable:tableName];
         if (ret) {
-            NSLog(@"表%@中已经存在此字段：%@",tableName,dbName);
         }
         else{
             NSLog(@"表%@中不经存在此字段，添加新字段：%@",tableName,dbName);

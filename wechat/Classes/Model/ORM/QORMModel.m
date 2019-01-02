@@ -34,10 +34,19 @@
     return nil;
 }
 
-#pragma mark -- private
--(void)parser
+#pragma mark - your can overwrite
+- (void)setNilValueForKey:(NSString *)key
 {
-    
+    NSLog(@"%s -> %@类中，key:[%@] 设置为nil了或者设置了 int 等基础类型，",__FUNCTION__, NSStringFromClass(self.class),key);
+}
+- (id)valueForUndefinedKey:(NSString *)key
+{
+    NSLog(@"%s -> %@类中，key:[%@] 的get方法没实现，",__FUNCTION__, NSStringFromClass(self.class),key);
+    return nil;
+}
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    NSLog(@"%s -> %@类中，key:[%@] 的set方法没实现，",__FUNCTION__, NSStringFromClass(self.class),key);
 }
 
 @end

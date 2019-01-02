@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 #import "QORMProperty.h"
 #import "QORMModel.h"
-
+#import "QORMManager.h"
 
 static NSString  *const type_char=@"char";
 static NSString  *const type_int=@"int";
@@ -95,8 +95,6 @@ static NSDictionary *_QORMTypeDict=nil;
             
             cls = class_getSuperclass(cls);
         }
-        
-        
     }
     return propertyInfoArray;
 }

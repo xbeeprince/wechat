@@ -12,11 +12,12 @@
 #import "QORMPropertyParser.h"
 #import "QFileHandler.h"
 #import "QORMTableCreater.h"
+#import "QORMTableInserter.h"
+#import "QORMTableSearcher.h"
 
 @interface QORMManager ()
-
 @property (nonatomic, strong)FMDatabaseQueue *dbQueue;
-
+@property (nonatomic, strong)NSDictionary *classPropertyInfoCache;
 @end
 
 @implementation QORMManager
@@ -50,8 +51,36 @@
 -(void)saveWithModel:(QORMModel *)model
 {
     //创建表
-    BOOL result = [QORMTableCreater createTableWithModel:model];
-    NSLog(@"create table result = %@",result ? @"YES":@"NO");
+    BOOL create_result = [QORMTableCreater createTableWithModel:model];
+    NSLog(@"create table result = %@",create_result ? @"YES":@"NO");
+    
+    BOOL insert_result = [QORMTableInserter insertWithModel:model];
+    NSLog(@"insert result = %@",insert_result ? @"YES":@"NO");
+}
+
+-(void)addClassPropertyInfoCache:(NSArray *)propertyInfoArray withClassName:(NSString *)className
+{
+    if ([className length] > 0 && propertyInfoArray) {
+        NSMutableDictionary *tmpDict = nil;
+        if ([_classPropertyInfoCache.allKeys count] > 0) {
+            tmpDict = [NSMutableDictionary dictionaryWithDictionary:_classPropertyInfoCache];
+        }
+        else{
+            tmpDict = [NSMutableDictionary new];
+        }
+        
+        [tmpDict setValue:propertyInfoArray forKey:className];
+        
+        _classPropertyInfoCache = tmpDict;
+    }
+}
+
+-(NSArray *)propertyInfoCacheWithClassName:(NSString *)className
+{
+    if ([className length] > 0) {
+        return [_classPropertyInfoCache valueForKey:className];
+    }
+    return nil;
 }
 
 #pragma mark -- private mothod

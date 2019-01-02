@@ -10,6 +10,7 @@
 #import "QORMManager.h"
 #import "QPersonModel.h"
 #import "QStudentModel.h"
+#import "QORMTableSearcher.h"
 
 @interface wechatMainPageViewController ()
 
@@ -35,20 +36,30 @@
 #pragma mark -- 测试ORMModel的代码
 -(void)runTest
 {
-    QStudentModel *student = [QStudentModel new];
-    student.city = @"深圳";
-    student.name = @"王子健";
-    student.age = 21;
-    student.school = @"华中科技大学";
+    for (int index = 0; index < 100; index++) {
+        QStudentModel *student = [QStudentModel new];
+        student.cardId = [NSString stringWithFormat:@"student_%d",index];
+        student.city = @"深圳";
+        student.name = @"王子健";
+        student.age = 21;
+        student.school = @"华中科技大学";
+        student.className = @"计算机大班";
+        //    QPersonModel *friendPerson = [QPersonModel new];
+        //    friendPerson.city = @"上海";
+        //    friendPerson.name = @"小明";
+        //    friendPerson.age = 22;
+        //
+        //    student.friendPerson = friendPerson;
+        
+        [[QORMManager getInstance] saveWithModel:student];
+    }
+
+     NSArray *result_list = [QORMTableSearcher searchWithPrimaryKeyValue:@"student_90" withClassName:@"QStudentModel"];
     
-//    QPersonModel *friendPerson = [QPersonModel new];
-//    friendPerson.city = @"上海";
-//    friendPerson.name = @"小明";
-//    friendPerson.age = 22;
-//
-//    student.friendPerson = friendPerson;
+    for (QORMModel *model in result_list) {
+        NSLog(@"result : %@",model.description);
+    }
     
-    [[QORMManager getInstance] saveWithModel:student];
 }
 
 @end

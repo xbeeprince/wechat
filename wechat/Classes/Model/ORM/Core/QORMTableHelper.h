@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class FMResultSet;
+@class QORMModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,11 +16,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)excuteUpdateWithSQL:(NSString *)sql;
 
++ (BOOL)excuteUpdateWithSQL:(NSString *)sql withArgumentsInArray:(NSArray *)array;
+
 + (FMResultSet *)excuteQueryWithSQL:(NSString *)sql;
 
 + (BOOL)isExistTableWithName:(NSString *)tableName;
 
 + (BOOL)isExistColumn:(NSString *)columnName inTable:(NSString *)tableName;
+
++ (NSString *)primaryKeyValueWithModel:(QORMModel *)model;
 
 @end
 

@@ -8,6 +8,9 @@
 
 #import "QORMTableHelper.h"
 #import "QORMManager.h"
+#import "QORMModel.h"
+#import "QORMProperty.h"
+#import "QORMPropertyParser.h"
 
 @implementation QORMTableHelper
 
@@ -17,6 +20,17 @@
     FMDatabaseQueue *dbQueue = [[QORMManager getInstance] getDatabaseQueue];
     [dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
         result = [db executeUpdate:sql];
+    }];
+    
+    return result;
+}
+
++ (BOOL)excuteUpdateWithSQL:(NSString *)sql withArgumentsInArray:(NSArray *)array
+{
+    __block BOOL result = NO;
+    FMDatabaseQueue *dbQueue = [[QORMManager getInstance] getDatabaseQueue];
+    [dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        result = [db executeUpdate:sql withArgumentsInArray:array];
     }];
     
     return result;
@@ -52,6 +66,20 @@
     }];
     
     return result;
+}
+
++ (NSString *)primaryKeyValueWithModel:(QORMModel *)model
+{
+    NSArray *propertyInfoArray = [QORMPropertyParser parserPropertyInfoWithModel:model];
+    NSString *primaryKey = [model.class primaryKey];
+    NSString *returnValue = nil;
+    for (QORMProperty *propertyInfo in propertyInfoArray) {
+        if ([primaryKey isEqualToString:propertyInfo.name]) {
+            returnValue = [propertyInfo codeValueToString];
+            break;
+        }
+    }
+    return returnValue;
 }
 
 @end

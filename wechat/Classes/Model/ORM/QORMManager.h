@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(FMDatabaseQueue *)getDatabaseQueue;
 
+-(void)addClassPropertyInfoCache:(NSArray *)propertyInfoArray withClassName:(NSString *)className;
+
+-(NSArray *)propertyInfoCacheWithClassName:(NSString *)className;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,7 @@
 //
 
 #import "QORMModel.h"
+#import "QORMHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

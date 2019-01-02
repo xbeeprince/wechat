@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class QORMModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QORMTableInserter : NSObject
+
++ (BOOL)insertWithModel:(QORMModel *)model;
 
 @end
 

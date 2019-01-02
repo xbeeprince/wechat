@@ -10,4 +10,8 @@
 
 @implementation QStudentModel
 
++ (NSString *)primaryKey {
+    return @"cardId";
+}
+
 @end
