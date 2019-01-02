@@ -21,7 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) int age;
 
-//@property (nonatomic, assign) int sex;
+@property (nonatomic, assign) int sex;
+
+@property (nonatomic, strong) NSDate *date;
 
 @property (nonatomic, strong) QPersonModel *friendPerson;
 

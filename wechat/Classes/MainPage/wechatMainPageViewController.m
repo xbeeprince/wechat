@@ -44,6 +44,9 @@
         student.age = 21;
         student.school = @"华中科技大学";
         student.className = @"计算机大班";
+        student.sex = arc4random()%2;
+        NSTimeInterval time = [[NSDate date] timeIntervalSince1970] + arc4random()%1000;
+        student.date = [NSDate dateWithTimeIntervalSince1970:time];
         //    QPersonModel *friendPerson = [QPersonModel new];
         //    friendPerson.city = @"上海";
         //    friendPerson.name = @"小明";

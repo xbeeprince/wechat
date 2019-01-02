@@ -9,6 +9,7 @@
 #import "QORMProperty.h"
 #import "QORMHelper.h"
 #import <UIKit/UIKit.h>
+#import "QFileHandler.h"
 
 @implementation QORMProperty
 
@@ -63,19 +64,75 @@
         if ([value isKindOfClass:[NSArray class]]) {
             
         }
+        else if ([value isKindOfClass:[NSSet class]]) {
+            
+        }
         else if ([value isKindOfClass:[NSDictionary class]]) {
             
         }
         else {
-            
+            returnValue = [value string];
         }
     }
     return returnValue;
 }
 
-- (id)decodeValueFromString
+- (id)decodeValueFromString:(NSString *)string
 {
     id returnValue = nil;
+    if ([_type isEqualToString:@"NSString"]) {
+        returnValue = string;
+    }
+    else if ([_type isEqualToString:@"NSNumber"]) {
+        returnValue = [[QORMHelper numberFormatter] numberFromString:string];
+    }
+    else if ([_type isEqualToString:@"NSDate"]) {
+        returnValue = [[QORMHelper dateFormatter] dateFromString:string];
+    }
+    else if ([_type isEqualToString:@"UIColor"]) {
+        NSString *colorString = string;
+        NSArray *array = [colorString componentsSeparatedByString:@","];
+        float r, g, b, a;
+        r = [[array objectAtIndex:0] floatValue];
+        g = [[array objectAtIndex:1] floatValue];
+        b = [[array objectAtIndex:2] floatValue];
+        a = [[array objectAtIndex:3] floatValue];
+        
+        returnValue = [UIColor colorWithRed:r green:g blue:b alpha:a];
+    }
+    else if ([_type isEqualToString:@"UIImage"]) {
+        NSString *filename = string;
+        NSString *filepath = [QORMHelper getImagePathWithName:filename];
+        if ([QFileHandler isFileExists:filepath]) {
+            returnValue = [[UIImage alloc] initWithContentsOfFile:filepath];
+        }
+    }
+    else if ([_type isEqualToString:@"NSData"]) {
+        NSString *filename = string;
+        NSString *filepath = [QORMHelper getDataPathWithName:filename];
+        if ([QFileHandler isFileExists:filepath]) {
+            returnValue = [NSData dataWithContentsOfFile:filepath];
+        }
+    }
+    else if ([_type isEqualToString:@"NSValue"]) {
+        
+    }
+    else if ([_type isEqualToString:@"NSURL"]) {
+        NSString *urlString = string;
+        returnValue = [NSURL URLWithString:urlString];
+    }
+    else if ([_type isEqualToString:@"NSArray"]) {
+        
+    }
+    else if ([_type isEqualToString:@"NSSet"]) {
+        
+    }
+    else if ([_type isEqualToString:@"NSDictionary"]) {
+        
+    }
+    else{
+        
+    }
     
     return returnValue;
 }

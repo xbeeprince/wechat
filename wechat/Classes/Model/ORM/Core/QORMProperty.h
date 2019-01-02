@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(NSString *)codeValueToString;
 
-- (id)decodeValueFromString;
+- (id)decodeValueFromString:(NSString *)string;
 
 @end
 

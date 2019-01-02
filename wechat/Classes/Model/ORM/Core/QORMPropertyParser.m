@@ -73,6 +73,17 @@ static NSDictionary *_QORMTypeDict=nil;
         return nil;
     }
     
+    NSArray *propertyInfoCache = [[QORMManager getInstance] propertyInfoCacheWithClassName: NSStringFromClass(model.class)];
+    if (propertyInfoCache) {
+        
+        for (QORMProperty *propertyInfo in propertyInfoCache) {
+            if (propertyInfo.name) {
+                propertyInfo.value = [model valueForKey: propertyInfo.name];
+            }
+        }
+        return propertyInfoCache;
+    }
+    
     NSMutableArray *propertyInfoArray = [NSMutableArray new];
     {
         Class cls = [model class];
@@ -86,7 +97,9 @@ static NSDictionary *_QORMTypeDict=nil;
                 QORMProperty *propertyInfo = [QORMProperty new];
                 propertyInfo.type = [self propertyType:property];
                 propertyInfo.name = [self propertyName:property];
-                propertyInfo.value = [model valueForKey: propertyInfo.name];
+                if (propertyInfo.name) {
+                    propertyInfo.value = [model valueForKey: propertyInfo.name];
+                }
                 
                 [propertyInfoArray addObject:propertyInfo];
             }
@@ -96,6 +109,7 @@ static NSDictionary *_QORMTypeDict=nil;
             cls = class_getSuperclass(cls);
         }
     }
+    [[QORMManager getInstance] addClassPropertyInfoCache:propertyInfoArray withClassName:NSStringFromClass(model.class)];
     return propertyInfoArray;
 }
 

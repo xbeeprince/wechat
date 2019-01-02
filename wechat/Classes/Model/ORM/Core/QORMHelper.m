@@ -52,12 +52,12 @@
 
 + (NSString *)getImagePathWithName:(NSString *)filename
 {
-    NSString *dir = [NSString stringWithFormat:@"dbimg/%@", NSStringFromClass(self)];
+    NSString *dir = [NSString stringWithFormat:@"QORMDatabaseImage/%@", NSStringFromClass(self)];
     return [QFileHandler getPathForDocuments:filename inDir:dir];
 }
 + (NSString *)getDataPathWithName:(NSString *)filename
 {
-    NSString *dir = [NSString stringWithFormat:@"dbdata/%@", NSStringFromClass(self)];
+    NSString *dir = [NSString stringWithFormat:@"QORMDatabaseData/%@", NSStringFromClass(self)];
     return [QFileHandler getPathForDocuments:filename inDir:dir];
 }
 

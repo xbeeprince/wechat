@@ -12,6 +12,7 @@
 #import "QORMPropertyParser.h"
 #import "QORMManager.h"
 #import "QORMTableHelper.h"
+#import "QORMProperty.h"
 
 @implementation QORMTableSearcher
 
@@ -43,11 +44,26 @@
         if (colomnName) {
             NSString *colomnValue = [set stringForColumn:colomnName];
             if (colomnValue) {
-                [model setValue:colomnValue forKey:colomnName];
+                QORMProperty *propertyInfo = [self getPropertyWithModel:model withColomnName:colomnName];
+                if (propertyInfo) {
+                    id value = [propertyInfo decodeValueFromString:colomnValue];
+                    [model setValue:value forKey:colomnName];
+                }
             }
         }
     }
     return model;
+}
+
++ (QORMProperty *)getPropertyWithModel:(QORMModel *)model withColomnName:(NSString *)name
+{
+    NSArray *propertyInfoArray = [QORMPropertyParser parserPropertyInfoWithModel:model];
+    for (QORMProperty *propertyInfo in propertyInfoArray) {
+        if ([name isEqualToString:propertyInfo.name]) {
+            return propertyInfo;
+        }
+    }
+    return nil;
 }
 
 @end
