@@ -94,7 +94,7 @@
                                 }
                             }
                         }
-                        [model setValue:tmpObject forKey:colomnName];
+                        [model setValue:tmpVauleDict forKey:colomnName];
                     }
                     else {
                         id value = [propertyInfo decodeValueFromString:colomnValue];

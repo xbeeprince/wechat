@@ -50,10 +50,6 @@
 
 -(void)saveWithModel:(QORMModel *)model
 {
-    //创建表
-    BOOL create_result = [QORMTableCreater createTableWithModel:model];
-    NSLog(@"create table result = %@",create_result ? @"YES":@"NO");
-    
     BOOL insert_result = [QORMTableInserter insertWithModel:model];
     NSLog(@"insert result = %@",insert_result ? @"YES":@"NO");
 }

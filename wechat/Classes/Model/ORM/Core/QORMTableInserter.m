@@ -11,6 +11,7 @@
 #import "QORMProperty.h"
 #import "QORMPropertyParser.h"
 #import "QORMTableHelper.h"
+#import "QORMTableCreater.h"
 #import "QORMTableSearcher.h"
 #import "QORMTableUpdater.h"
 #import "QORMHelper.h"
@@ -27,6 +28,16 @@
 + (BOOL)insertWithModel:(QORMModel *)model withNeedInsertPropertyArray:(NSArray *)updateArray withIgnorInsertPropertyArray:(NSArray *)ignorArray
 {
     BOOL result = NO;
+    
+    NSString *tableName = [model.class tableName];
+    if ([QORMTableHelper isExistTableWithName:tableName] == NO) {
+        NSLog(@"数据库中不存在此表：%@，将先创建表",tableName);
+        result = [QORMTableCreater createTableWithModel:model];
+        if (result == NO) {
+            return result;
+        }
+    }
+    
     NSString *primaryKeyValue = [QORMTableHelper primaryKeyValueWithModel:model];
     QORMModel *result_model = [QORMTableSearcher searchWithPrimaryKeyValue:primaryKeyValue withClassName: NSStringFromClass(model.class)];
     if (result_model) {
@@ -126,7 +137,7 @@
                         NSAssert(NO,@"子表的primaryKey不能为nil ！！！");
                     }
                     
-                    NSDictionary *dict = @{@"class":NSStringFromClass(infoModel.class),@"value":primaryKeyValue};
+                    NSDictionary *dict = @{@"class":NSStringFromClass(infoModel.class),@"key":key,@"value":primaryKeyValue};
                     NSString *tmpValue = [QORMHelper dictionaryToJsonString:dict];
                     if (tmpValue) {
                         [tmpArray addObject:tmpValue];

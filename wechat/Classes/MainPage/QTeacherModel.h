@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QTeacherModel : QPersonModel
 @property (nonatomic, strong) NSArray *students;
+@property (nonatomic, strong) NSDictionary *studentDict;
 
 @end
 
