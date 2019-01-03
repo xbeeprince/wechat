@@ -13,6 +13,7 @@
 #import "QORMTableHelper.h"
 #import "QORMTableSearcher.h"
 #import "QORMTableUpdater.h"
+#import "QORMHelper.h"
 
 @implementation QORMTableInserter
 
@@ -20,8 +21,8 @@
 {
     BOOL result = NO;
     NSString *primaryKeyValue = [QORMTableHelper primaryKeyValueWithModel:model];
-    NSArray *search_result = [QORMTableSearcher searchWithPrimaryKeyValue:primaryKeyValue withClassName: NSStringFromClass(model.class)];
-    if ([search_result count] > 0) {
+    QORMModel *result_model = [QORMTableSearcher searchWithPrimaryKeyValue:primaryKeyValue withClassName: NSStringFromClass(model.class)];
+    if (result_model) {
         NSLog(@"数据库中存在此记录，将进行 update 操作");
         //更新
         result = [QORMTableUpdater updateWithModel:model];
@@ -36,10 +37,108 @@
         if ([propertyInfo.value isKindOfClass: [QORMModel class]]) {
             NSLog(@"insert 子表...");
             //继续存储子表操作
-//            QORMModel *infoModel = (QORMModel *)(propertyInfo.value);
-//            NSString *dbName = [NSString stringWithFormat:@"%@_%@", propertyInfo.name,[infoModel.class primaryKey]];
-//            NSString *dbType = @"TEXT";
-//            [tableSQL appendFormat: @"%@ %@,",dbName,dbType];
+            QORMModel *infoModel = (QORMModel *)(propertyInfo.value);
+            NSString *primaryKeyValue = [QORMTableHelper primaryKeyValueWithModel:infoModel];
+            if (primaryKeyValue == nil) {
+                NSAssert(NO,@"子表的primaryKey不能为nil ！！！");
+            }
+            NSString *value = primaryKeyValue;
+            if (value == nil) {
+                continue;
+            }
+            
+            if (insertKey.length > 0) {
+                [insertKey appendString:@","];
+                [insertValuesString appendString:@","];
+            }
+            
+            [insertKey appendString:propertyInfo.name];
+            [insertValuesString appendString:@"?"];
+            
+            [insertValues addObject:value];
+            
+            //子表插入
+            [self insertWithModel:infoModel];
+        }
+        else if ([propertyInfo.value isKindOfClass: [NSArray class]]) {
+        
+            NSMutableArray *tmpArray = [NSMutableArray new];
+            for (id object in propertyInfo.value) {
+                if ([object isKindOfClass: [QORMModel class]]) {
+                    //继续存储子表操作
+                    QORMModel *infoModel = (QORMModel *)(object);
+                    NSString *primaryKeyValue = [QORMTableHelper primaryKeyValueWithModel:infoModel];
+                    if (primaryKeyValue == nil) {
+                        NSAssert(NO,@"子表的primaryKey不能为nil ！！！");
+                    }
+                    
+                    NSDictionary *dict = @{@"class":NSStringFromClass(infoModel.class),@"value":primaryKeyValue};
+                    NSString *tmpValue = [QORMHelper dictionaryToJsonString:dict];
+                    if (tmpValue) {
+                        [tmpArray addObject:tmpValue];
+                        [self insertWithModel:object];
+                    }
+                }
+                else{
+                    NSDictionary *dict = @{@"class":NSStringFromClass([object class]),@"value":object};
+                    NSString *tmpValue = [QORMHelper dictionaryToJsonString:dict];
+                    if (tmpValue) {
+                        [tmpArray addObject:tmpValue];
+                    }
+                }
+            }
+            
+            if (insertKey.length > 0) {
+                [insertKey appendString:@","];
+                [insertValuesString appendString:@","];
+            }
+            
+            [insertKey appendString:propertyInfo.name];
+            [insertValuesString appendString:@"?"];
+            
+            NSString *value = [QORMHelper arrayToJsonString:tmpArray];
+            [insertValues addObject:value];
+        }
+        else if ([propertyInfo.value isKindOfClass: [NSDictionary class]]) {
+            
+            NSMutableArray *tmpArray = [NSMutableArray new];
+            NSDictionary *dictionary = (NSDictionary *)propertyInfo.value;
+            for (NSString *key in dictionary.allKeys) {
+                id object = [dictionary valueForKey:key];
+                if ([object isKindOfClass: [QORMModel class]]) {
+                    //继续存储子表操作
+                    QORMModel *infoModel = (QORMModel *)(object);
+                    NSString *primaryKeyValue = [QORMTableHelper primaryKeyValueWithModel:infoModel];
+                    if (primaryKeyValue == nil) {
+                        NSAssert(NO,@"子表的primaryKey不能为nil ！！！");
+                    }
+                    
+                    NSDictionary *dict = @{@"class":NSStringFromClass(infoModel.class),@"value":primaryKeyValue};
+                    NSString *tmpValue = [QORMHelper dictionaryToJsonString:dict];
+                    if (tmpValue) {
+                        [tmpArray addObject:tmpValue];
+                        [self insertWithModel:object];
+                    }
+                }
+                else{
+                    NSDictionary *dict = @{@"class":NSStringFromClass([object class]),@"key":key,@"value":object};
+                    NSString *tmpValue = [QORMHelper dictionaryToJsonString:dict];
+                    if (tmpValue) {
+                        [tmpArray addObject:tmpValue];
+                    }
+                }
+            }
+            
+            if (insertKey.length > 0) {
+                [insertKey appendString:@","];
+                [insertValuesString appendString:@","];
+            }
+            
+            [insertKey appendString:propertyInfo.name];
+            [insertValuesString appendString:@"?"];
+            
+            NSString *value = [QORMHelper arrayToJsonString:tmpArray];
+            [insertValues addObject:value];
         }
         else {
             NSString *value = [propertyInfo codeValueToString];

@@ -16,16 +16,20 @@ static NSString  *const type_char=@"char";
 static NSString  *const type_int=@"int";
 static NSString  *const type_short=@"short";
 static NSString  *const type_long=@"long";
+static NSString  *const type_long_long=@"long long";
+
 static NSString  *const type_unsigned_char=@"unsigned char";
 static NSString  *const type_unsigned_int=@"unsigned int";
 static NSString  *const type_unsigned_short=@"unsigned short";
 static NSString  *const type_unsigned_long=@"unsigned long";
 static NSString  *const type_unsigned_long_long=@"unsigned long long";
+
 static NSString  *const type_float=@"float";
 static NSString  *const type_double=@"double";
 static NSString  *const type_BOOL=@"BOOL";
 static NSString  *const type_void=@"void";
 static NSString  *const type_char_X=@"char *";
+
 static NSString  *const type_char_SEL=@"SEL";
 static NSString  *const type_char_id=@"id";
 static NSString  *const type_char_Class=@"Class";
@@ -39,6 +43,14 @@ static NSString *const type_NSString=@"NSString";
 static NSString *const type_NSMutalbleString=@"NSMutalbleString";
 static NSString *const type_NSValue=@"NSValue";
 static NSString *const type_NSNumber=@"NSNumber";
+
+static NSString *const type_NSDate=@"NSDate";
+static NSString *const type_NSData=@"NSData";
+
+static NSString *const type_UIColor=@"UIColor";
+static NSString *const type_UIImage=@"UIImage";
+
+static NSString *const type_NSURL=@"NSURL";
 
 static NSString *const protocol_NSCopying=@"NSCopying";
 

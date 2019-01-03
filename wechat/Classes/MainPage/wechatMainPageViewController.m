@@ -36,7 +36,7 @@
 #pragma mark -- 测试ORMModel的代码
 -(void)runTest
 {
-    for (int index = 0; index < 100; index++) {
+    for (int index = 0; index < 10; index++) {
         QStudentModel *student = [QStudentModel new];
         student.cardId = [NSString stringWithFormat:@"student_%d",index];
         student.city = @"深圳";
@@ -47,21 +47,20 @@
         student.sex = arc4random()%2;
         NSTimeInterval time = [[NSDate date] timeIntervalSince1970] + arc4random()%1000;
         student.date = [NSDate dateWithTimeIntervalSince1970:time];
-        //    QPersonModel *friendPerson = [QPersonModel new];
-        //    friendPerson.city = @"上海";
-        //    friendPerson.name = @"小明";
-        //    friendPerson.age = 22;
-        //
-        //    student.friendPerson = friendPerson;
+        
+        QPersonModel *friendPerson = [QPersonModel new];
+        friendPerson.cardId = [NSString stringWithFormat:@"friend_%d",index];
+        friendPerson.city = @"上海";
+        friendPerson.name = @"小明";
+        friendPerson.age = 22;
+        
+        student.friendPerson = friendPerson;
         
         [[QORMManager getInstance] saveWithModel:student];
     }
 
-     NSArray *result_list = [QORMTableSearcher searchWithPrimaryKeyValue:@"student_90" withClassName:@"QStudentModel"];
-    
-    for (QORMModel *model in result_list) {
-        NSLog(@"result : %@",model.description);
-    }
+    QORMModel *model = [QORMTableSearcher searchWithPrimaryKeyValue:@"student_9" withClassName:@"QStudentModel"];
+    NSLog(@"result : %@",model.description);
     
 }
 

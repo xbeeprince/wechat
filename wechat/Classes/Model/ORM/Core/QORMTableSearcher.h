@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class QORMModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QORMTableSearcher : NSObject
 
-+ (NSArray *)searchWithPrimaryKeyValue:(NSString *)value withClassName:(NSString *)clsName;
++ (QORMModel *)searchWithPrimaryKeyValue:(NSString *)value withClassName:(NSString *)clsName;
 
 @end
 

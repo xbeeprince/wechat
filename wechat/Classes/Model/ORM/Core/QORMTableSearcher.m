@@ -13,10 +13,11 @@
 #import "QORMManager.h"
 #import "QORMTableHelper.h"
 #import "QORMProperty.h"
+#import "QORMHelper.h"
 
 @implementation QORMTableSearcher
 
-+ (NSArray *)searchWithPrimaryKeyValue:(NSString *)value withClassName:(NSString *)clsName
++ (QORMModel *)searchWithPrimaryKeyValue:(NSString *)value withClassName:(NSString *)clsName
 {
     NSString *tableName = [NSClassFromString(clsName) tableName];
     NSString *primaryKey = [NSClassFromString(clsName) primaryKey];
@@ -32,7 +33,7 @@
         QORMModel *model = [self createModelWithFMResultSet:set withClassName:clsName];
         [tmpArray addObject:model];
     }
-    return tmpArray;
+    return [tmpArray firstObject];
 }
 
 + (QORMModel *)createModelWithFMResultSet:(FMResultSet *)set withClassName:(NSString *)clsName
@@ -46,8 +47,59 @@
             if (colomnValue) {
                 QORMProperty *propertyInfo = [self getPropertyWithModel:model withColomnName:colomnName];
                 if (propertyInfo) {
-                    id value = [propertyInfo decodeValueFromString:colomnValue];
-                    [model setValue:value forKey:colomnName];
+                    Class cla = NSClassFromString(propertyInfo.type);
+                    id tmpObject = [cla new];
+                    if ([tmpObject isKindOfClass: [QORMModel class]]) {
+                        //查子表
+                        QORMModel *valueModel = [self searchWithPrimaryKeyValue:colomnValue withClassName:propertyInfo.type];
+                        [model setValue:valueModel forKey:colomnName];
+                    }
+                    else if ([tmpObject isKindOfClass: [NSArray class]]) {
+                        NSMutableArray *tmpVauleArray = [NSMutableArray new];
+                        NSArray *primaryKeyValueList = [QORMHelper arrayWithJsonString:colomnValue];
+                        for (NSString *dictString in primaryKeyValueList) {
+                            NSDictionary *dict = [QORMHelper dictionaryWithJsonString:dictString];
+                            if (dict) {
+                                NSString *className = [dict valueForKey: @"class"];
+                                id tmpValue = [dict valueForKey: @"value"];
+                                Class cla = NSClassFromString(className);
+                                if ([[cla new] isKindOfClass: [QORMModel class]]) {
+                                    QORMModel *valueModel = [self searchWithPrimaryKeyValue:tmpValue withClassName:className];
+                                    [tmpVauleArray addObject:valueModel];
+                                }
+                                else{
+                                    [tmpVauleArray addObject:tmpValue];
+                                }
+                            }
+                        }
+                        [model setValue:tmpVauleArray forKey:colomnName];
+                    }
+                    else if ([tmpObject isKindOfClass: [NSDictionary class]]) {
+                        NSMutableDictionary *tmpVauleDict = [NSMutableDictionary new];
+                        NSArray *primaryKeyValueList = [QORMHelper arrayWithJsonString:colomnValue];
+                        for (NSString *dictString in primaryKeyValueList) {
+                            NSDictionary *dict = [QORMHelper dictionaryWithJsonString:dictString];
+                            if (dict) {
+                                NSString *className = [dict valueForKey: @"class"];
+                                NSString *key = [dict valueForKey: @"key"];
+                                id tmpValue = [dict valueForKey: @"value"];
+                                
+                                Class cla = NSClassFromString(className);
+                                if ([[cla new] isKindOfClass: [QORMModel class]]) {
+                                    QORMModel *valueModel = [self searchWithPrimaryKeyValue:tmpValue withClassName:className];
+                                    [tmpVauleDict setValue:valueModel forKey:key];
+                                }
+                                else{
+                                    [tmpVauleDict setValue:tmpValue forKey:key];
+                                }
+                            }
+                        }
+                        [model setValue:tmpObject forKey:colomnName];
+                    }
+                    else {
+                        id value = [propertyInfo decodeValueFromString:colomnValue];
+                        [model setValue:value forKey:colomnName];
+                    }
                 }
             }
         }

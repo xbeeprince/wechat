@@ -36,6 +36,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)getDataPathWithName:(NSString *)filename;
 
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
+
++ (NSString*)dictionaryToJsonString:(NSDictionary *)dic;
+
++ (NSArray *)arrayWithJsonString:(NSString *)jsonString;
+
++ (NSString*)arrayToJsonString:(NSArray *)array;
+
 @end
 
 NS_ASSUME_NONNULL_END

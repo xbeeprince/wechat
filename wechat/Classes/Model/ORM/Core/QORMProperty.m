@@ -130,9 +130,19 @@
     else if ([_type isEqualToString:@"NSDictionary"]) {
         
     }
-    else{
+    else if ([_type isEqualToString:@"char"]){
         
     }
+    else if ([_type isEqualToString:@"int"]){
+        
+    }
+    else if ([_type isEqualToString:@"short"]){
+        
+    }
+    else if ([_type isEqualToString:@"long"]){
+        
+    }
+    
     
     return returnValue;
 }

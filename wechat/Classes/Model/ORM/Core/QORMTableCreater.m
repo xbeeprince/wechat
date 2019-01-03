@@ -29,9 +29,12 @@
             NSLog(@"create 子表...");
             //继续存储子表操作
             QORMModel *infoModel = (QORMModel *)(propertyInfo.value);
-            NSString *dbName = [NSString stringWithFormat:@"%@_%@", propertyInfo.name,[infoModel.class primaryKey]];
+            if (tableSQL.length > 0) {
+                [tableSQL appendString:@","];
+            }
+            NSString *dbName = propertyInfo.name;
             NSString *dbType = @"TEXT";
-            [tableSQL appendFormat: @"%@ %@,",dbName,dbType];
+            [tableSQL appendFormat: @"%@ %@",dbName,dbType];
             
             [self createTableWithModel:infoModel];
         }

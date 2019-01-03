@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wechat/Classes/Model/ORM/Core/QORMPropertyParser.m"
-            timestampString = "568126080.233395"
+            timestampString = "568201510.704556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "+parserPropertyInfoWithModel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wechat/Classes/Model/ORM/Core/QORMPropertyParser.m"
-            timestampString = "568126080.233866"
+            timestampString = "568201510.70462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "+parserPropertyInfoWithModel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wechat/Classes/Model/ORM/Core/QORMPropertyParser.m"
-            timestampString = "568126080.234181"
+            timestampString = "568201510.704675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "+parserPropertyInfoWithModel:"
             landmarkType = "7">
          </BreakpointContent>
