@@ -12,6 +12,7 @@
 		A3502E9821DC664A00D09713 /* QORMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502E9721DC664A00D09713 /* QORMHelper.m */; };
 		A3502E9B21DC67B400D09713 /* QORMDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502E9A21DC67B400D09713 /* QORMDateFormatter.m */; };
 		A3502EA421DCA6A400D09713 /* QORMTableSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502EA321DCA6A300D09713 /* QORMTableSearcher.m */; };
+		A3502ED721DE2FD800D09713 /* QTeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502ED621DE2FD800D09713 /* QTeacherModel.m */; };
 		A3FE73AD21CBC07500A9A3FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FE73AC21CBC07500A9A3FD /* Assets.xcassets */; };
 		A3FE73C021CBC0E900A9A3FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE73BD21CBC0E900A9A3FD /* main.m */; };
 		A3FE73C121CBC0E900A9A3FD /* wechatAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FE73BE21CBC0E900A9A3FD /* wechatAppDelegate.m */; };
@@ -42,6 +43,8 @@
 		A3502E9A21DC67B400D09713 /* QORMDateFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMDateFormatter.m; sourceTree = "<group>"; };
 		A3502EA221DCA6A300D09713 /* QORMTableSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QORMTableSearcher.h; sourceTree = "<group>"; };
 		A3502EA321DCA6A300D09713 /* QORMTableSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QORMTableSearcher.m; sourceTree = "<group>"; };
+		A3502ED521DE2FD800D09713 /* QTeacherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTeacherModel.h; sourceTree = "<group>"; };
+		A3502ED621DE2FD800D09713 /* QTeacherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTeacherModel.m; sourceTree = "<group>"; };
 		A3FE73A021CBC07400A9A3FD /* wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FE73AC21CBC07500A9A3FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3FE73BC21CBC0E900A9A3FD /* wechatAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wechatAppDelegate.h; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				F5C0196321D9BB2D00F2CE67 /* QPersonModel.m */,
 				F5C0196821D9BB2D00F2CE67 /* QStudentModel.h */,
 				F5C0196521D9BB2D00F2CE67 /* QStudentModel.m */,
+				A3502ED521DE2FD800D09713 /* QTeacherModel.h */,
+				A3502ED621DE2FD800D09713 /* QTeacherModel.m */,
 				F5C0196721D9BB2D00F2CE67 /* wechatMainPageViewController.h */,
 				F5C0196421D9BB2D00F2CE67 /* wechatMainPageViewController.m */,
 			);
@@ -331,6 +336,7 @@
 				F5C0198821D9BB2D00F2CE67 /* QORMTableInserter.m in Sources */,
 				A3FE73C121CBC0E900A9A3FD /* wechatAppDelegate.m in Sources */,
 				F5C0198421D9BB2D00F2CE67 /* QORMTableUpdater.m in Sources */,
+				A3502ED721DE2FD800D09713 /* QTeacherModel.m in Sources */,
 				F5C0198A21D9BB2D00F2CE67 /* QORMPropertyParser.m in Sources */,
 				A3502EA421DCA6A400D09713 /* QORMTableSearcher.m in Sources */,
 				A3FE73C021CBC0E900A9A3FD /* main.m in Sources */,
