@@ -82,4 +82,39 @@
     return returnValue;
 }
 
++ (BOOL)isContainInArray:(NSArray *)array withString:(NSString *)string
+{
+    for (id object in array) {
+        if ([object isKindOfClass:[NSString class]]) {
+            NSString *tmpString = object;
+            if ([tmpString isEqualToString:string]) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
++ (BOOL)isNeedWithProperty:(QORMProperty *)propertyInfo withNeedInsertPropertyArray:(NSArray *)updateArray withIgnorInsertPropertyArray:(NSArray *)ignorArray
+{
+    BOOL result = YES;
+    if ([updateArray count] > 0) {
+        //判断是否在需要更新的熟悉集合内
+        if (updateArray ) {
+            BOOL updateContain = [QORMTableHelper isContainInArray:updateArray withString:propertyInfo.name];
+            if (updateContain == NO) {
+                result = NO;
+            }
+        }
+    }
+    else if([ignorArray count] > 0){
+        BOOL ignorContain = [QORMTableHelper isContainInArray:ignorArray withString:propertyInfo.name];
+        if (ignorContain == YES) {
+            result = NO;
+        }
+    }
+    
+    return result;
+}
+
 @end

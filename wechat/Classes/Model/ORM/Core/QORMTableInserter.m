@@ -20,6 +20,13 @@
 + (BOOL)insertWithModel:(QORMModel *)model
 {
     BOOL result = NO;
+    result = [self insertWithModel:model withNeedInsertPropertyArray:nil withIgnorInsertPropertyArray:nil];
+    return result;
+}
+
++ (BOOL)insertWithModel:(QORMModel *)model withNeedInsertPropertyArray:(NSArray *)updateArray withIgnorInsertPropertyArray:(NSArray *)ignorArray
+{
+    BOOL result = NO;
     NSString *primaryKeyValue = [QORMTableHelper primaryKeyValueWithModel:model];
     QORMModel *result_model = [QORMTableSearcher searchWithPrimaryKeyValue:primaryKeyValue withClassName: NSStringFromClass(model.class)];
     if (result_model) {
@@ -34,6 +41,12 @@
     NSMutableString *insertValuesString = [NSMutableString stringWithCapacity:0];
     NSMutableArray *insertValues = [NSMutableArray arrayWithCapacity:propertyInfoArray.count];
     for (QORMProperty *propertyInfo in propertyInfoArray) {
+        
+        BOOL need = [QORMTableHelper isNeedWithProperty:propertyInfo withNeedInsertPropertyArray:updateArray withIgnorInsertPropertyArray:ignorArray];
+        if (need == NO) {
+            continue;
+        }
+        
         if ([propertyInfo.value isKindOfClass: [QORMModel class]]) {
             NSLog(@"insert 子表...");
             //继续存储子表操作

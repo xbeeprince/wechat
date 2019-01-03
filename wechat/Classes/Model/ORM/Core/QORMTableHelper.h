@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @class FMResultSet;
 @class QORMModel;
-
+@class QORMProperty;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QORMTableHelper : NSObject
@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isExistColumn:(NSString *)columnName inTable:(NSString *)tableName;
 
 + (NSString *)primaryKeyValueWithModel:(QORMModel *)model;
+
++ (BOOL)isNeedWithProperty:(QORMProperty *)propertyInfo withNeedInsertPropertyArray:(NSArray *)updateArray withIgnorInsertPropertyArray:(NSArray *)ignorArray;
 
 @end
 

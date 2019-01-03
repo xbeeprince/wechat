@@ -131,19 +131,65 @@
         
     }
     else if ([_type isEqualToString:@"char"]){
-        
+        returnValue = string;
+    }
+    else if ([_type isEqualToString:@"unsigned char"]){
+        returnValue = string;
     }
     else if ([_type isEqualToString:@"int"]){
-        
+        int value = [string intValue];
+        returnValue = [NSNumber numberWithInt:value];
+    }
+    else if ([_type isEqualToString:@"unsigned int"]){
+        unsigned int value = [string intValue];
+        returnValue = [NSNumber numberWithUnsignedInt:value];
     }
     else if ([_type isEqualToString:@"short"]){
-        
+        short value = [string intValue];
+        returnValue = [NSNumber numberWithShort:value];
+    }
+    else if ([_type isEqualToString:@"unsigned short"]){
+        unsigned short value = [string intValue];
+        returnValue = [NSNumber numberWithUnsignedShort:value];
     }
     else if ([_type isEqualToString:@"long"]){
-        
+        long value = [string longLongValue];
+        returnValue = [NSNumber numberWithLong:value];
     }
-    
-    
+    else if ([_type isEqualToString:@"unsigned long"]){
+        unsigned long value = [string longLongValue];
+        returnValue = [NSNumber numberWithUnsignedLong:value];
+    }
+    else if ([_type isEqualToString:@"long long"]){
+        long long value = [string longLongValue];
+        returnValue = [NSNumber numberWithLongLong:value];
+    }
+    else if ([_type isEqualToString:@"unsigned long long"]){
+        unsigned long long value = [string longLongValue];
+        returnValue = [NSNumber numberWithUnsignedLongLong:value];
+    }
+    else if ([_type isEqualToString:@"NSInteger"]){
+#if __LP64__ || TARGET_OS_WIN32 || NS_BUILD_32_LIKE_64
+        long value = [string longLongValue];
+        returnValue = [NSNumber numberWithLong:value];
+#else
+        int value = [string intValue];
+        returnValue = [NSNumber numberWithInt:value];
+#endif
+    }
+    else if ([_type isEqualToString:@"NSUInteger"]){
+#if __LP64__ || TARGET_OS_WIN32 || NS_BUILD_32_LIKE_64
+        unsigned long value = [string longLongValue];
+        returnValue = [NSNumber numberWithUnsignedLong:value];
+#else
+        unsigned int value = [string intValue];
+        returnValue = [NSNumber numberWithUnsignedInt:value];
+#endif
+    }
+    else{
+        NSLog(@"未能识别到类型！！！");
+        returnValue = string;
+    }
     return returnValue;
 }
 

@@ -12,19 +12,42 @@
 #import "QORMPropertyParser.h"
 #import "QORMTableHelper.h"
 #import "QORMHelper.h"
+#import "QORMTableInserter.h"
+#import "QORMTableSearcher.h"
 
 @implementation QORMTableUpdater
 
 + (BOOL)updateWithModel:(QORMModel *)model
 {
-    NSLog(@"进行 update 操作");
+    BOOL result = NO;
+    result = [self updateWithModel:model withNeedUpdatePropertyArray:nil withIgnorUpdatePropertyArray:nil];
+    return result;
+}
+
++ (BOOL)updateWithModel:(QORMModel *)model withNeedUpdatePropertyArray:(NSArray *)updateArray withIgnorUpdatePropertyArray:(NSArray *)ignorArray
+{
     BOOL result = NO;
     NSString *primaryKeyValue = [QORMTableHelper primaryKeyValueWithModel:model];
+    QORMModel *result_model = [QORMTableSearcher searchWithPrimaryKeyValue:primaryKeyValue withClassName: NSStringFromClass(model.class)];
+    if (result_model == nil) {
+        NSLog(@"数据库中不存在此记录，将进行 insert 操作");
+        //插入
+        result = [QORMTableInserter insertWithModel:model];
+        return result;
+    }
+    
+    NSLog(@"进行 update 操作");
     
     NSArray *propertyInfoArray = [QORMPropertyParser parserPropertyInfoWithModel:model];
     NSMutableString *updateKey = [NSMutableString string];
     NSMutableArray *updateValues = [NSMutableArray arrayWithCapacity:propertyInfoArray.count];
     for (QORMProperty *propertyInfo in propertyInfoArray) {
+        
+        BOOL need = [QORMTableHelper isNeedWithProperty:propertyInfo withNeedInsertPropertyArray:updateArray withIgnorInsertPropertyArray:ignorArray];
+        if (need == NO) {
+            continue;
+        }
+        
         if ([propertyInfo.value isKindOfClass: [QORMModel class]]) {
             NSLog(@"update 子表...");
             QORMModel *infoModel = (QORMModel *)(propertyInfo.value);
