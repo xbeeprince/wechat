@@ -18,15 +18,17 @@
     self = [super init];
     if (self) {
         self.lock = [[NSRecursiveLock alloc] init];
-        self.generatesCalendarDates = YES;
-        self.dateStyle = NSDateFormatterNoStyle;
-        self.timeStyle = NSDateFormatterNoStyle;
-        self.AMSymbol = nil;
-        self.PMSymbol = nil;
-        NSLocale *locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-        if (locale) {
-            [self setLocale:locale];
-        }
+//        self.generatesCalendarDates = YES;
+//        self.dateStyle = NSDateFormatterNoStyle;
+//        self.timeStyle = NSDateFormatterNoStyle;
+//        self.AMSymbol = nil;
+//        self.PMSymbol = nil;
+        
+        [self setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
+        [self setCalendar: [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]];
+        NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh"];
+        [self setLocale:locale];
+        self.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     }
     return self;
 }

@@ -30,7 +30,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         format = [[QORMDateFormatter alloc] init];
-        format.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     });
     return format;
 }

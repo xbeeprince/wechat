@@ -42,13 +42,16 @@
     teacher.cardId = [NSString stringWithFormat:@"teacher_%d",0];
     teacher.name = @"老师王子健";
     teacher.age = 21;
-    
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970] + arc4random()%1000;
+    teacher.date = [NSDate dateWithTimeIntervalSince1970:time];
     
     QPersonModel *friendPerson = [QPersonModel new];
     friendPerson.cardId = [NSString stringWithFormat:@"friend_%d",0];
     friendPerson.city = @"上海";
     friendPerson.name = @"小明";
     friendPerson.age = 22;
+    time = [[NSDate date] timeIntervalSince1970] + arc4random()%1000;
+    friendPerson.date = [NSDate dateWithTimeIntervalSince1970:time];
     
     NSMutableArray *students = [NSMutableArray new];
     for (int index = 0; index < 10; index++) {

@@ -87,7 +87,7 @@
         returnValue = [[QORMHelper numberFormatter] numberFromString:string];
     }
     else if ([_type isEqualToString:@"NSDate"]) {
-        returnValue = [[QORMHelper dateFormatter] dateFromString:string];
+        returnValue = [QORMHelper dateWithString:string];
     }
     else if ([_type isEqualToString:@"UIColor"]) {
         NSString *colorString = string;

@@ -116,7 +116,7 @@
                         NSAssert(NO,@"子表的primaryKey不能为nil ！！！");
                     }
                     
-                    NSDictionary *dict = @{@"class":NSStringFromClass(infoModel.class),@"value":primaryKeyValue};
+                    NSDictionary *dict = @{@"class":NSStringFromClass(infoModel.class),@"key":key,@"value":primaryKeyValue};
                     NSString *tmpValue = [QORMHelper dictionaryToJsonString:dict];
                     if (tmpValue) {
                         [tmpArray addObject:tmpValue];
