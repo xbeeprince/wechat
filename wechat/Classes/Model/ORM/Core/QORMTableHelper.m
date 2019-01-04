@@ -100,11 +100,9 @@
     BOOL result = YES;
     if ([updateArray count] > 0) {
         //判断是否在需要更新的熟悉集合内
-        if (updateArray ) {
-            BOOL updateContain = [QORMTableHelper isContainInArray:updateArray withString:propertyInfo.name];
-            if (updateContain == NO) {
-                result = NO;
-            }
+        BOOL updateContain = [QORMTableHelper isContainInArray:updateArray withString:propertyInfo.name];
+        if (updateContain == NO) {
+            result = NO;
         }
     }
     else if([ignorArray count] > 0){
@@ -114,6 +112,32 @@
         }
     }
     
+    return result;
+}
+
++ (BOOL)isNeedWithProperty:(QORMProperty *)propertyInfo withModel:(QORMModel *)model
+{
+    if ([model isKindOfClass: [QORMModel class]] == NO) {
+        return NO;
+    }
+    
+    BOOL result = YES;
+    Class cls = [model class];
+    NSArray *required = [cls requiredProperties];
+    NSArray *ignored = [cls ignoredProperties];
+    if ([required count] > 0) {
+        //判断是否在需要更新的熟悉集合内
+        BOOL updateContain = [QORMTableHelper isContainInArray:required withString:propertyInfo.name];
+        if (updateContain == NO) {
+            result = NO;
+        }
+    }
+    else if([ignored count] > 0){
+        BOOL ignorContain = [QORMTableHelper isContainInArray:ignored withString:propertyInfo.name];
+        if (ignorContain == YES) {
+            result = NO;
+        }
+    }
     return result;
 }
 

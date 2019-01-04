@@ -17,6 +17,11 @@
 
 + (BOOL)createTableWithModel:(QORMModel *)model
 {
+    return [self createTableWithModel:model withNeedInsertPropertyArray:nil withIgnorInsertPropertyArray:nil];
+}
+
++ (BOOL)createTableWithModel:(QORMModel *)model withNeedInsertPropertyArray:(NSArray *)updateArray withIgnorInsertPropertyArray:(NSArray *)ignorArray
+{
     NSString *tableName = [model.class tableName];
     if ([QORMTableHelper isExistTableWithName:tableName]) {
         NSLog(@"数据库中已经存在此表：%@",tableName);
@@ -25,6 +30,17 @@
     NSArray *propertyInfoArray = [QORMPropertyParser parserPropertyInfoWithModel:model];
     NSMutableString *tableSQL = [NSMutableString string];
     for (QORMProperty *propertyInfo in propertyInfoArray) {
+        
+        BOOL need = [QORMTableHelper isNeedWithProperty:propertyInfo withNeedInsertPropertyArray:updateArray withIgnorInsertPropertyArray:ignorArray];
+        if (need == NO) {
+            continue;
+        }
+        
+        BOOL required = [QORMTableHelper isNeedWithProperty:propertyInfo withModel:model];
+        if (required == NO) {
+            continue;
+        }
+        
         if ([propertyInfo.value isKindOfClass: [QORMModel class]]) {
             NSLog(@"create 子表...");
             //继续存储子表操作

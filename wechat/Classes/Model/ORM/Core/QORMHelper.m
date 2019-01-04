@@ -13,6 +13,17 @@
 
 @implementation QORMHelper
 
++(NSString *)databaseDirectory
+{
+    return [QFileHandler getDirectoryForDocuments:@"QORMDatabase"];
+}
+
++(NSString *)databasePath
+{
+    NSString *path = [[self databaseDirectory] stringByAppendingPathComponent: @"database.db"];
+    return path;
+}
+
 #pragma mark -- private
 + (NSNumberFormatter *)numberFormatter
 {
@@ -51,13 +62,21 @@
 
 + (NSString *)getImagePathWithName:(NSString *)filename
 {
-    NSString *dir = [NSString stringWithFormat:@"QORMDatabaseImage/%@", NSStringFromClass(self)];
-    return [QFileHandler getPathForDocuments:filename inDir:dir];
+    NSString *dir = [[[self databaseDirectory] stringByAppendingPathComponent: @"QORMDatabaseImage"] stringByAppendingPathComponent:NSStringFromClass(self)];
+    NSError *error = nil;
+    if(![[NSFileManager defaultManager] createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:&error]) {
+        NSLog(@"create dir[%@] error: %@",dir,error.debugDescription);
+    }
+    return [dir stringByAppendingPathComponent:filename];
 }
 + (NSString *)getDataPathWithName:(NSString *)filename
 {
-    NSString *dir = [NSString stringWithFormat:@"QORMDatabaseData/%@", NSStringFromClass(self)];
-    return [QFileHandler getPathForDocuments:filename inDir:dir];
+    NSString *dir = [[[self databaseDirectory] stringByAppendingPathComponent: @"QORMDatabaseData"] stringByAppendingPathComponent:NSStringFromClass(self)];
+    NSError *error = nil;
+    if(![[NSFileManager defaultManager] createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:&error]) {
+        NSLog(@"create dir[%@] error: %@",dir,error.debugDescription);
+    }
+    return [dir stringByAppendingPathComponent:filename];
 }
 
 #pragma mark -- 字典、字符串互转

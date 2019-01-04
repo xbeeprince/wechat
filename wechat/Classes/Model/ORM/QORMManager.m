@@ -14,6 +14,7 @@
 #import "QORMTableCreater.h"
 #import "QORMTableInserter.h"
 #import "QORMTableSearcher.h"
+#import "QORMHelper.h"
 
 @interface QORMManager ()
 @property (nonatomic, strong)FMDatabaseQueue *dbQueue;
@@ -83,7 +84,7 @@
 
 -(NSString *)databasePath
 {
-    NSString *path = [QFileHandler getPathForDocuments:@"database.db" inDir:@"mydata"];
+    NSString *path = [QORMHelper databasePath];
     return path;
 }
 

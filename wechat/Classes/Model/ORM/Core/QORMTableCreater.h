@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(BOOL)createTableWithModel:(QORMModel *)model;
 
++ (BOOL)createTableWithModel:(QORMModel *)model withNeedInsertPropertyArray:(nullable NSArray *)updateArray withIgnorInsertPropertyArray:(nullable NSArray *)ignorArray;
+
 @end
 
 NS_ASSUME_NONNULL_END

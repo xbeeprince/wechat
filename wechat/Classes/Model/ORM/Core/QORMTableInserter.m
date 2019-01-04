@@ -58,6 +58,11 @@
             continue;
         }
         
+        BOOL required = [QORMTableHelper isNeedWithProperty:propertyInfo withModel:model];
+        if (required == NO) {
+            continue;
+        }
+        
         if ([propertyInfo.value isKindOfClass: [QORMModel class]]) {
             NSLog(@"insert 子表...");
             //继续存储子表操作

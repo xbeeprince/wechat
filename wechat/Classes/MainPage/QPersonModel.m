@@ -13,4 +13,9 @@
 + (NSString *)primaryKey {
     return @"cardId";
 }
+
++ (NSArray *)ignoredProperties {
+    return @[@"date"];
+}
+
 @end

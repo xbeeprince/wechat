@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isNeedWithProperty:(QORMProperty *)propertyInfo withNeedInsertPropertyArray:(NSArray *)updateArray withIgnorInsertPropertyArray:(NSArray *)ignorArray;
 
++ (BOOL)isNeedWithProperty:(QORMProperty *)propertyInfo withModel:(QORMModel *)model;
+
 @end
 
 NS_ASSUME_NONNULL_END

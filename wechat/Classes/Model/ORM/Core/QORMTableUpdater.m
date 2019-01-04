@@ -48,6 +48,11 @@
             continue;
         }
         
+        BOOL required = [QORMTableHelper isNeedWithProperty:propertyInfo withModel:model];
+        if (required == NO) {
+            continue;
+        }
+        
         if ([propertyInfo.value isKindOfClass: [QORMModel class]]) {
             NSLog(@"update 子表...");
             QORMModel *infoModel = (QORMModel *)(propertyInfo.value);

@@ -56,7 +56,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)getSubpathsAtPath:(NSString *)path;
 
 #pragma mark- 获取文件的数据
-
++ (NSString *)getDirectoryForDocuments:(NSString *)dir;
++ (NSString *)getDirectoryForCaches:(NSString *)dir;
 + (NSData *)getDataForResource:(NSString *)name inDir:(NSString *)dir;
 + (NSData *)getDataForDocuments:(NSString *)name inDir:(NSString *)dir;
 + (NSData *)getDataForPath:(NSString *)path;
