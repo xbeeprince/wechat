@@ -96,8 +96,11 @@
     [[QORMManager getInstance] saveWithModel:teacher];
 
     QORMModel *model = [QORMTableSearcher searchWithPrimaryKeyValue:@"teacher_0" withClassName:@"QTeacherModel"];
-    NSLog(@"result : %@",model.description);
+    NSLog(@"result : %@",model);
     
+    
+    QORMModel *teacherCopy = [model copy];
+    NSLog(@"copy result: %@",teacherCopy.description);
 }
 
 @end

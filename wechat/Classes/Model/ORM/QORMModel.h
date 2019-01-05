@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QORMModel : NSObject
+@interface QORMModel : NSObject<NSCoding,NSCopying>
 
 + (NSString *)primaryKey;
 
@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)indexedProperties;
 
 + (NSDictionary *)defaultPropertyValues;
+
+- (NSDictionary *)modelToDictionary;
 
 @end
 
