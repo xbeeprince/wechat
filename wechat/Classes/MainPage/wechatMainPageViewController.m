@@ -12,6 +12,7 @@
 #import "QStudentModel.h"
 #import "QTeacherModel.h"
 #import "QORMTableSearcher.h"
+#include "Array.h"
 
 @interface wechatMainPageViewController ()
 
@@ -25,13 +26,37 @@
     
     [self initialize];
     
-    [self runTest];
+    //[self runTest];
+    
+    [self run];
 }
 
 -(void)initialize
 {
     self.title = @"主页";
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+static void init()
+{
+    NSLog(@"init...");
+};
+
+-(void)run
+{
+    
+    Array* array = AArray->create(sizeof(int),10);
+
+    for (int i = 0; i < array->capacity; i++) {
+        AArray_Set(array, int, i, i);
+    }
+    
+    for (int index = 0; index < array->capacity; index++) {
+        int data = AArray_Get(array, int, index);
+        NSLog(@"%d",data);
+    }
+    
+    NSLog(@"%@ ...",array);
 }
 
 #pragma mark -- 测试ORMModel的代码
