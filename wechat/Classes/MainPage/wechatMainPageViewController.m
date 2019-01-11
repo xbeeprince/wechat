@@ -13,7 +13,62 @@
 #import "QTeacherModel.h"
 #import "QORMTableSearcher.h"
 #include "Array.h"
+#include "ArrayList.h"
+#import <setjmp.h>
+#include "coroutine.h"
+#include <stdlib.h>
 
+static int function(void) {
+    static int i;
+    for (i = 0; i < 10; i++)
+        return i;   /* won't work, but wouldn't it be nice */
+    
+    return -1;
+}
+
+static int function1(void) {
+    static int i, state = 0;
+    switch (state) {
+        case 0: /* start of function */
+            for (i = 0; i < 10; i++) {
+                state = 1; /* so we will come back to "case 1" */
+                return i;
+            case 1:; /* resume control straight after the return */
+            }
+    }
+    return -1;
+}
+
+static int function2(void) {
+    static int i, state = 0;
+    switch (state) {
+        case 0: /* start of function */
+            for (i = 0; i < 10; i++) {
+                state = __LINE__ + 2; /* so we will come back to "case __LINE__" */
+                return i;
+            case __LINE__:; /* resume control straight after the return */
+            }
+    }
+    return -1;
+}
+
+static void loadingRun(Coroutine *coroutine)
+{
+    NSLog(@"begin.........................");
+    
+    ACoroutine_Begin();
+
+    ACoroutine_YieldSeconds(5.0);
+    
+    ACoroutine_YieldSeconds(5.0);
+    
+    ACoroutine_End();
+    
+    coroutine->state = CoroutineState_Finish;
+    
+    NSLog(@"end.........................");
+}
+    
 @interface wechatMainPageViewController ()
 
 @end
@@ -37,26 +92,20 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
-static void init()
-{
-    NSLog(@"init...");
-};
+
+
 
 -(void)run
 {
+    Coroutine *coroutine = ACoroutine->startCoroutine(loadingRun);
     
-    Array* array = AArray->create(sizeof(int),10);
-
-    for (int i = 0; i < array->capacity; i++) {
-        AArray_Set(array, int, i, i);
+    while (coroutine->state != CoroutineState_Finish) {
+        ACoroutine->update(coroutine,1.0);
+        sleep(1);
+        NSLog(@"wait 1 秒");
     }
     
-    for (int index = 0; index < array->capacity; index++) {
-        int data = AArray_Get(array, int, index);
-        NSLog(@"%d",data);
-    }
-    
-    NSLog(@"%@ ...",array);
+    NSLog(@"结束了");
 }
 
 #pragma mark -- 测试ORMModel的代码

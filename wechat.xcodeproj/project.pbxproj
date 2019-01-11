@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		38B7E8BA375E723370F18093 /* libPods-wechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 379BFF04581F898C39A24746 /* libPods-wechat.a */; };
+		A34FC8AF21E61990001BEDD0 /* ArrayList.c in Sources */ = {isa = PBXBuildFile; fileRef = A34FC8AE21E61990001BEDD0 /* ArrayList.c */; };
+		A34FC8F221E8710A001BEDD0 /* coroutine.c in Sources */ = {isa = PBXBuildFile; fileRef = A34FC8F121E8710A001BEDD0 /* coroutine.c */; };
 		A3502E9521DC656A00D09713 /* QORMNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502E9421DC656A00D09713 /* QORMNumberFormatter.m */; };
 		A3502E9821DC664A00D09713 /* QORMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502E9721DC664A00D09713 /* QORMHelper.m */; };
 		A3502E9B21DC67B400D09713 /* QORMDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502E9A21DC67B400D09713 /* QORMDateFormatter.m */; };
@@ -38,6 +40,10 @@
 		379BFF04581F898C39A24746 /* libPods-wechat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wechat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		767B5CE2342D1962A677E459 /* Pods-wechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.release.xcconfig"; path = "Pods/Target Support Files/Pods-wechat/Pods-wechat.release.xcconfig"; sourceTree = "<group>"; };
 		838D272C9196334E0B69063F /* Pods-wechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wechat/Pods-wechat.debug.xcconfig"; sourceTree = "<group>"; };
+		A34FC8AD21E61990001BEDD0 /* ArrayList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayList.h; sourceTree = "<group>"; };
+		A34FC8AE21E61990001BEDD0 /* ArrayList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ArrayList.c; sourceTree = "<group>"; };
+		A34FC8F021E8710A001BEDD0 /* coroutine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coroutine.h; sourceTree = "<group>"; };
+		A34FC8F121E8710A001BEDD0 /* coroutine.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = coroutine.c; sourceTree = "<group>"; };
 		A3502E9321DC656A00D09713 /* QORMNumberFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMNumberFormatter.h; sourceTree = "<group>"; };
 		A3502E9421DC656A00D09713 /* QORMNumberFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QORMNumberFormatter.m; sourceTree = "<group>"; };
 		A3502E9621DC664A00D09713 /* QORMHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QORMHelper.h; sourceTree = "<group>"; };
@@ -130,6 +136,10 @@
 			children = (
 				A3EE9AE421E4C961004F7C37 /* Array.h */,
 				A3EE9AE521E4C961004F7C37 /* Array.c */,
+				A34FC8AD21E61990001BEDD0 /* ArrayList.h */,
+				A34FC8AE21E61990001BEDD0 /* ArrayList.c */,
+				A34FC8F021E8710A001BEDD0 /* coroutine.h */,
+				A34FC8F121E8710A001BEDD0 /* coroutine.c */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -386,12 +396,14 @@
 				F5C0198C21D9BB2D00F2CE67 /* QFileHandler.m in Sources */,
 				F5C0198D21D9BB2D00F2CE67 /* QORMModel.m in Sources */,
 				F5C0198621D9BB2D00F2CE67 /* QORMProperty.m in Sources */,
+				A34FC8AF21E61990001BEDD0 /* ArrayList.c in Sources */,
 				F5C0198221D9BB2D00F2CE67 /* wechatMainPageViewController.m in Sources */,
 				A3502E9B21DC67B400D09713 /* QORMDateFormatter.m in Sources */,
 				A3502E9521DC656A00D09713 /* QORMNumberFormatter.m in Sources */,
 				F5C0198921D9BB2D00F2CE67 /* QORMTableHelper.m in Sources */,
 				F5C0199621E0522000F2CE67 /* NSArray+toJson.m in Sources */,
 				F5C0198B21D9BB2D00F2CE67 /* QORMManager.m in Sources */,
+				A34FC8F221E8710A001BEDD0 /* coroutine.c in Sources */,
 				F5C0199921E0523600F2CE67 /* NSDictionary+toJson.m in Sources */,
 				F5C0198121D9BB2D00F2CE67 /* QPersonModel.m in Sources */,
 			);
