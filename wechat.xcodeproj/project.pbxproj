@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		38B7E8BA375E723370F18093 /* libPods-wechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 379BFF04581F898C39A24746 /* libPods-wechat.a */; };
+		A343299121EC32F80054CA5B /* wechatRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299021EC32F80054CA5B /* wechatRenderViewController.m */; };
+		A343299521EC8BF50054CA5B /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299421EC8BF50054CA5B /* GameManager.m */; };
+		A343299921EC8F410054CA5B /* Drawable.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299821EC8F410054CA5B /* Drawable.m */; };
+		A343299C21ECC4D40054CA5B /* Graphics.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299B21ECC4D40054CA5B /* Graphics.m */; };
+		A343299F21ECC5800054CA5B /* GLInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299E21ECC5800054CA5B /* GLInfo.m */; };
 		A34FC8AF21E61990001BEDD0 /* ArrayList.c in Sources */ = {isa = PBXBuildFile; fileRef = A34FC8AE21E61990001BEDD0 /* ArrayList.c */; };
 		A34FC8F221E8710A001BEDD0 /* coroutine.c in Sources */ = {isa = PBXBuildFile; fileRef = A34FC8F121E8710A001BEDD0 /* coroutine.c */; };
 		A3502E9521DC656A00D09713 /* QORMNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502E9421DC656A00D09713 /* QORMNumberFormatter.m */; };
@@ -40,6 +45,17 @@
 		379BFF04581F898C39A24746 /* libPods-wechat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wechat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		767B5CE2342D1962A677E459 /* Pods-wechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.release.xcconfig"; path = "Pods/Target Support Files/Pods-wechat/Pods-wechat.release.xcconfig"; sourceTree = "<group>"; };
 		838D272C9196334E0B69063F /* Pods-wechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wechat/Pods-wechat.debug.xcconfig"; sourceTree = "<group>"; };
+		A343298F21EC32F80054CA5B /* wechatRenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wechatRenderViewController.h; sourceTree = "<group>"; };
+		A343299021EC32F80054CA5B /* wechatRenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wechatRenderViewController.m; sourceTree = "<group>"; };
+		A343299321EC8BF50054CA5B /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		A343299421EC8BF50054CA5B /* GameManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		A343299621EC8C2F0054CA5B /* GameDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDefine.h; sourceTree = "<group>"; };
+		A343299721EC8F410054CA5B /* Drawable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Drawable.h; sourceTree = "<group>"; };
+		A343299821EC8F410054CA5B /* Drawable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Drawable.m; sourceTree = "<group>"; };
+		A343299A21ECC4D40054CA5B /* Graphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
+		A343299B21ECC4D40054CA5B /* Graphics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Graphics.m; sourceTree = "<group>"; };
+		A343299D21ECC5800054CA5B /* GLInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLInfo.h; sourceTree = "<group>"; };
+		A343299E21ECC5800054CA5B /* GLInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLInfo.m; sourceTree = "<group>"; };
 		A34FC8AD21E61990001BEDD0 /* ArrayList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayList.h; sourceTree = "<group>"; };
 		A34FC8AE21E61990001BEDD0 /* ArrayList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ArrayList.c; sourceTree = "<group>"; };
 		A34FC8F021E8710A001BEDD0 /* coroutine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coroutine.h; sourceTree = "<group>"; };
@@ -115,9 +131,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A343298E21EC32BB0054CA5B /* RenderPage */ = {
+			isa = PBXGroup;
+			children = (
+				A343298F21EC32F80054CA5B /* wechatRenderViewController.h */,
+				A343299021EC32F80054CA5B /* wechatRenderViewController.m */,
+			);
+			path = RenderPage;
+			sourceTree = "<group>";
+		};
+		A343299221EC34020054CA5B /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				A343299321EC8BF50054CA5B /* GameManager.h */,
+				A343299421EC8BF50054CA5B /* GameManager.m */,
+				A343299721EC8F410054CA5B /* Drawable.h */,
+				A343299821EC8F410054CA5B /* Drawable.m */,
+				A343299A21ECC4D40054CA5B /* Graphics.h */,
+				A343299B21ECC4D40054CA5B /* Graphics.m */,
+				A343299D21ECC5800054CA5B /* GLInfo.h */,
+				A343299E21ECC5800054CA5B /* GLInfo.m */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
 		A3EE9AE121E4C7CB004F7C37 /* PGame */ = {
 			isa = PBXGroup;
 			children = (
+				A343299621EC8C2F0054CA5B /* GameDefine.h */,
+				A343299221EC34020054CA5B /* Engine */,
 				A3EE9AE221E4C7FD004F7C37 /* ToolKit */,
 			);
 			path = PGame;
@@ -202,6 +244,7 @@
 		F5C0196121D9BB2D00F2CE67 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A343298E21EC32BB0054CA5B /* RenderPage */,
 				A3EE9AE121E4C7CB004F7C37 /* PGame */,
 				F5C0196221D9BB2D00F2CE67 /* MainPage */,
 				F5C0196921D9BB2D00F2CE67 /* Model */,
@@ -385,6 +428,7 @@
 				F5C0198821D9BB2D00F2CE67 /* QORMTableInserter.m in Sources */,
 				A3FE73C121CBC0E900A9A3FD /* wechatAppDelegate.m in Sources */,
 				F5C0198421D9BB2D00F2CE67 /* QORMTableUpdater.m in Sources */,
+				A343299521EC8BF50054CA5B /* GameManager.m in Sources */,
 				A3502ED721DE2FD800D09713 /* QTeacherModel.m in Sources */,
 				A3EE9AE621E4C961004F7C37 /* Array.c in Sources */,
 				F5C0198A21D9BB2D00F2CE67 /* QORMPropertyParser.m in Sources */,
@@ -397,15 +441,19 @@
 				F5C0198D21D9BB2D00F2CE67 /* QORMModel.m in Sources */,
 				F5C0198621D9BB2D00F2CE67 /* QORMProperty.m in Sources */,
 				A34FC8AF21E61990001BEDD0 /* ArrayList.c in Sources */,
+				A343299C21ECC4D40054CA5B /* Graphics.m in Sources */,
 				F5C0198221D9BB2D00F2CE67 /* wechatMainPageViewController.m in Sources */,
 				A3502E9B21DC67B400D09713 /* QORMDateFormatter.m in Sources */,
 				A3502E9521DC656A00D09713 /* QORMNumberFormatter.m in Sources */,
 				F5C0198921D9BB2D00F2CE67 /* QORMTableHelper.m in Sources */,
+				A343299121EC32F80054CA5B /* wechatRenderViewController.m in Sources */,
 				F5C0199621E0522000F2CE67 /* NSArray+toJson.m in Sources */,
 				F5C0198B21D9BB2D00F2CE67 /* QORMManager.m in Sources */,
 				A34FC8F221E8710A001BEDD0 /* coroutine.c in Sources */,
+				A343299F21ECC5800054CA5B /* GLInfo.m in Sources */,
 				F5C0199921E0523600F2CE67 /* NSDictionary+toJson.m in Sources */,
 				F5C0198121D9BB2D00F2CE67 /* QPersonModel.m in Sources */,
+				A343299921EC8F410054CA5B /* Drawable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
