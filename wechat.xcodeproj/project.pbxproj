@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		38B7E8BA375E723370F18093 /* libPods-wechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 379BFF04581F898C39A24746 /* libPods-wechat.a */; };
+		A301B17C2201876000EA610C /* QRelationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A301B17B2201876000EA610C /* QRelationTableView.m */; };
+		A301B17F2201876F00EA610C /* QFriendListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A301B17E2201876F00EA610C /* QFriendListTableView.m */; };
+		A301B182220191DC00EA610C /* QBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A301B181220191DC00EA610C /* QBaseTableView.m */; };
 		A343299121EC32F80054CA5B /* wechatRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299021EC32F80054CA5B /* wechatRenderViewController.m */; };
 		A343299521EC8BF50054CA5B /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299421EC8BF50054CA5B /* GameManager.m */; };
 		A343299921EC8F410054CA5B /* Drawable.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299821EC8F410054CA5B /* Drawable.m */; };
 		A343299C21ECC4D40054CA5B /* Graphics.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299B21ECC4D40054CA5B /* Graphics.m */; };
 		A343299F21ECC5800054CA5B /* GLInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A343299E21ECC5800054CA5B /* GLInfo.m */; };
+		A34D320F21F43AFF00DA580B /* zhaoliying@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D320E21F43AFF00DA580B /* zhaoliying@2x.png */; };
 		A34FC8AF21E61990001BEDD0 /* ArrayList.c in Sources */ = {isa = PBXBuildFile; fileRef = A34FC8AE21E61990001BEDD0 /* ArrayList.c */; };
 		A34FC8F221E8710A001BEDD0 /* coroutine.c in Sources */ = {isa = PBXBuildFile; fileRef = A34FC8F121E8710A001BEDD0 /* coroutine.c */; };
 		A3502E9521DC656A00D09713 /* QORMNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A3502E9421DC656A00D09713 /* QORMNumberFormatter.m */; };
@@ -45,6 +49,12 @@
 		379BFF04581F898C39A24746 /* libPods-wechat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wechat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		767B5CE2342D1962A677E459 /* Pods-wechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.release.xcconfig"; path = "Pods/Target Support Files/Pods-wechat/Pods-wechat.release.xcconfig"; sourceTree = "<group>"; };
 		838D272C9196334E0B69063F /* Pods-wechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wechat/Pods-wechat.debug.xcconfig"; sourceTree = "<group>"; };
+		A301B17A2201876000EA610C /* QRelationTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRelationTableView.h; sourceTree = "<group>"; };
+		A301B17B2201876000EA610C /* QRelationTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRelationTableView.m; sourceTree = "<group>"; };
+		A301B17D2201876F00EA610C /* QFriendListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QFriendListTableView.h; sourceTree = "<group>"; };
+		A301B17E2201876F00EA610C /* QFriendListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QFriendListTableView.m; sourceTree = "<group>"; };
+		A301B180220191DC00EA610C /* QBaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QBaseTableView.h; sourceTree = "<group>"; };
+		A301B181220191DC00EA610C /* QBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QBaseTableView.m; sourceTree = "<group>"; };
 		A343298F21EC32F80054CA5B /* wechatRenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wechatRenderViewController.h; sourceTree = "<group>"; };
 		A343299021EC32F80054CA5B /* wechatRenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wechatRenderViewController.m; sourceTree = "<group>"; };
 		A343299321EC8BF50054CA5B /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
@@ -56,6 +66,7 @@
 		A343299B21ECC4D40054CA5B /* Graphics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Graphics.m; sourceTree = "<group>"; };
 		A343299D21ECC5800054CA5B /* GLInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLInfo.h; sourceTree = "<group>"; };
 		A343299E21ECC5800054CA5B /* GLInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLInfo.m; sourceTree = "<group>"; };
+		A34D320E21F43AFF00DA580B /* zhaoliying@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zhaoliying@2x.png"; sourceTree = "<group>"; };
 		A34FC8AD21E61990001BEDD0 /* ArrayList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayList.h; sourceTree = "<group>"; };
 		A34FC8AE21E61990001BEDD0 /* ArrayList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ArrayList.c; sourceTree = "<group>"; };
 		A34FC8F021E8710A001BEDD0 /* coroutine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coroutine.h; sourceTree = "<group>"; };
@@ -237,6 +248,7 @@
 		F5C0195021D9BA7100F2CE67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A34D320E21F43AFF00DA580B /* zhaoliying@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -263,6 +275,12 @@
 				A3502ED621DE2FD800D09713 /* QTeacherModel.m */,
 				F5C0196721D9BB2D00F2CE67 /* wechatMainPageViewController.h */,
 				F5C0196421D9BB2D00F2CE67 /* wechatMainPageViewController.m */,
+				A301B180220191DC00EA610C /* QBaseTableView.h */,
+				A301B181220191DC00EA610C /* QBaseTableView.m */,
+				A301B17A2201876000EA610C /* QRelationTableView.h */,
+				A301B17B2201876000EA610C /* QRelationTableView.m */,
+				A301B17D2201876F00EA610C /* QFriendListTableView.h */,
+				A301B17E2201876F00EA610C /* QFriendListTableView.m */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -388,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34D320F21F43AFF00DA580B /* zhaoliying@2x.png in Resources */,
 				A3FE73AD21CBC07500A9A3FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,12 +449,15 @@
 				F5C0198421D9BB2D00F2CE67 /* QORMTableUpdater.m in Sources */,
 				A343299521EC8BF50054CA5B /* GameManager.m in Sources */,
 				A3502ED721DE2FD800D09713 /* QTeacherModel.m in Sources */,
+				A301B182220191DC00EA610C /* QBaseTableView.m in Sources */,
 				A3EE9AE621E4C961004F7C37 /* Array.c in Sources */,
 				F5C0198A21D9BB2D00F2CE67 /* QORMPropertyParser.m in Sources */,
 				A3502EA421DCA6A400D09713 /* QORMTableSearcher.m in Sources */,
 				A3FE73C021CBC0E900A9A3FD /* main.m in Sources */,
 				F5C0198721D9BB2D00F2CE67 /* QORMTableCreater.m in Sources */,
+				A301B17F2201876F00EA610C /* QFriendListTableView.m in Sources */,
 				F5C0198321D9BB2D00F2CE67 /* QStudentModel.m in Sources */,
+				A301B17C2201876000EA610C /* QRelationTableView.m in Sources */,
 				A3502E9821DC664A00D09713 /* QORMHelper.m in Sources */,
 				F5C0198C21D9BB2D00F2CE67 /* QFileHandler.m in Sources */,
 				F5C0198D21D9BB2D00F2CE67 /* QORMModel.m in Sources */,

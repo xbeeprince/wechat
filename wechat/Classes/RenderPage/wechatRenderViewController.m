@@ -21,6 +21,15 @@
 -(void)update
 {
     [[GameManager getInstance] gameLoop];
+    
+    for (int i = 0; i<10000000; i++) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"zhaoliying@2x" ofType:@"png"];
+        UIImage *image = [UIImage imageWithContentsOfFile: path];
+        if (image) {
+            NSLog(@"find...");
+        }
+    }
+    
 }
 
 @end

@@ -56,14 +56,14 @@
     CGRect rect = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame: rect];
     
-//    wechatMainPageViewController *mainPageViewController = [wechatMainPageViewController new];
-//
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainPageViewController];
-//
-//    self.window.rootViewController = navController;
+    wechatMainPageViewController *mainPageViewController = [wechatMainPageViewController new];
+
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainPageViewController];
+
+    self.window.rootViewController = navController;
     
-    wechatRenderViewController *renderPageViewController = [wechatRenderViewController new];
-    self.window.rootViewController = renderPageViewController;
+//    wechatRenderViewController *renderPageViewController = [wechatRenderViewController new];
+//    self.window.rootViewController = renderPageViewController;
     [self.window makeKeyAndVisible];
 }
 @end
